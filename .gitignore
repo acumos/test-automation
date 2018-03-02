@@ -1,0 +1,11 @@
+# jars
+*.jar
+# executables
+*.exe
+#  logfiles
+*.log
+# test results
+Acumos/test-output
+.classpath
+.project
+/.settings/
