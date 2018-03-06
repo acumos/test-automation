@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5b6a882d_927061cf",
+        "filename": "docs/UserGuide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T10:57:11Z",
+      "side": 1,
+      "message": "Suite",
+      "revId": "fe497c49531ce52caf9361efc48da8a984f532a3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "419ebbb2_15bd566e",
+        "filename": "docs/UserGuide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 30,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T10:57:11Z",
+      "side": 1,
+      "message": "Suite",
+      "revId": "fe497c49531ce52caf9361efc48da8a984f532a3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b5fc7b3a_7f12c373",
+        "filename": "docs/UserGuide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 31,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T10:57:11Z",
+      "side": 1,
+      "message": "Please make the \u003d\u003d\u003d line length match the text line length",
+      "revId": "fe497c49531ce52caf9361efc48da8a984f532a3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "bdfe73c3_1ea4e080",
+        "filename": "test/csit/tests/portal/testsuites/acumosTestSuit.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-06T10:57:11Z",
+      "side": 1,
+      "message": "Can this file please be called Suite (not Suit)?",
+      "revId": "fe497c49531ce52caf9361efc48da8a984f532a3",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
