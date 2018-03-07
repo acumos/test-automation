@@ -1,0 +1,140 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "0a489c63_fd4f6f2a",
+        "filename": "docs/DevelopersGuide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1e324179_3f8907d3",
+        "filename": "docs/UserGuide.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "df896812_f0742124",
+        "filename": "docs/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "b76c871b_1ee4cc0c",
+        "filename": "docs/release-notes.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 3,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "655ef279_a4f0586c",
+        "filename": "docs/tutorials/index.rst",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "3c5042bc_0b0553e4",
+        "filename": "test/csit/tests/portal/testsuites/acumosTestSuite.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header in the appropriate comment format for .robot files",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "fcda28b4_683d190f",
+        "filename": "test/csit/tests/portal/testsuites/locators_Acumos.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "53b6e446_472d898c",
+        "filename": "test/csit/tests/portal/testsuites/resource_Acumos_data.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 1,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-03-07T00:28:37Z",
+      "side": 1,
+      "message": "Please add license header",
+      "revId": "8dd6e169e5f5329ffe53cd7952cea368bd0ac378",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
