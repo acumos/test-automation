@@ -20,7 +20,8 @@
 ${BROWSER}                 chrome
 ${URL}    
 
-#Acumos Data
+#Acumos Data#
 ${username}                  
 ${password}                  
-#${SearchModelName}   GenTest 
+${SearchModelName_Public}   Test_Public_Model
+${SearchModelName_Company}  Test_Company_Model  
