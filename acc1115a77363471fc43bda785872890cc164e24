@@ -1,0 +1,72 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a2cb1484_96a65faf",
+        "filename": "test/csit/tests/portal/testsuites/acumosTestSuite.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 261,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-05-11T19:32:31Z",
+      "side": 1,
+      "message": "Why is a 40-second sleep used? There must be a better way to detect when search result is available.  Some times 40s is too short, sometimes too long.  Robot must have a way to poll until something is found, with a timeout on the polling.",
+      "revId": "acc1115a77363471fc43bda785872890cc164e24",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "ab94c62b_440d12b0",
+        "filename": "test/csit/tests/portal/testsuites/acumosTestSuite.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 272,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-05-11T19:32:31Z",
+      "side": 1,
+      "message": "Ditto",
+      "revId": "acc1115a77363471fc43bda785872890cc164e24",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "33b8135a_9144d446",
+        "filename": "test/csit/tests/portal/testsuites/acumosTestSuite.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 278,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-05-11T19:32:31Z",
+      "side": 1,
+      "message": "Should this be signOut instead of singOut?\n\nsing me a song :)",
+      "revId": "acc1115a77363471fc43bda785872890cc164e24",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "a9768a99_c9c5a7e7",
+        "filename": "test/csit/tests/portal/testsuites/resource_Acumos_data.robot",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-05-11T19:32:31Z",
+      "side": 1,
+      "message": "which is the right answer, chrome or firefox?  will you test both, one after the other?",
+      "revId": "acc1115a77363471fc43bda785872890cc164e24",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
