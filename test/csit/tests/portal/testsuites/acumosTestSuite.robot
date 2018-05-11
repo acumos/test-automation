@@ -48,7 +48,9 @@ Site Admin Tab Verification
 Publish Solution in Public Marketplace
     Verify To Publish Solution In Public Marketplace      
 Publish Solution in Company Marketplace
-    Verify To Publish Solution In Company Marketplace         
+    Verify To Publish Solution In Company Marketplace
+Model Delete In My Models
+    Verify Delete Model In MyModels          
 Logout Portal
   Verify Logout
 Tear Down browser
@@ -65,7 +67,8 @@ Setup Browser
     Wait Until Element Is Visible    ${marketplaceLink}    10s   
     Wait Until Element Is Visible    ${modelerResorcesLink}    10s
        
- Verify Explore Marketplace Button
+Verify Explore Marketplace Button
+     Click Link    ${homeLink}
      Wait Until Element Is Visible    ${exploreMarketPlaceBtn}      10s    
      Click Element    ${exploreMarketPlaceBtn}
      Wait Until Element Is Visible  ${marketPlacePageTitle}    10s
@@ -250,7 +253,25 @@ Verify To Publish Solution In Company Marketplace
      Wait Until Element Is Visible    ${publishToCompanyMarketplaceCompleted}        10s     
      Element Should Be Visible    ${publishToCompanyMarketplaceCompleted}
 
-
+Verify Delete Model In MyModels
+     Wait Until Element Is Visible    ${myModelIcon}    10s
+     Click Element    ${myModelIcon} 
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
+     Input Text    ${searchModelTxtbox}    ${DeleteModelName}
+     Sleep  40s
+     Click Element    ${imageToSelect}
+     Wait Until Element Is Visible    ${manageMyModelBtn}    60s
+     Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
+     Click Element       ${manageMyModelBtn}
+     Wait Until Element Is Visible    ${DeleteModelTab}    30s
+     Click Element     ${DeleteModelTab}
+     Wait Until Element Is Visible    ${DeleteButton_MyModels}    10s
+     Click Element    ${DeleteButton_MyModels}
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
+     Input Text    ${searchModelTxtbox}    ${DeleteModelName}
+     Sleep  40s
+     Wait Until Element Is Visible    ${DeletedModel_InMyModels}    
+     Element Should Contain    ${DeletedModel_InMyModels}     ${DeleteModelName} 
 
              
  Verify Logout

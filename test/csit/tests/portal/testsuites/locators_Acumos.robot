@@ -19,24 +19,25 @@
 
 #Locators
 
-${marketplaceLink}  //a[@ui-sref='marketPlace' and contains(text(),'MARKETPLACE')]
-${modelerResorcesLink}  //a[@href='#/modelerResource' and contains(text(),'MODELER RESOURCES')]        
+${marketplaceLink}  //header-nav[@class='mdl-layout__header is-casting-shadow']//a[@href='#/marketPlace']
+${modelerResorcesLink}  //header-nav[@class='mdl-layout__header is-casting-shadow']//a[@href='#/modelerResource']        
 ${signIn}  //button[@ng-click='signin()']
-${homeLink}                //a[@href='#/home' and contains(text(),'HOME')] 
-${addYourModelBtn}     //button[@alt='ADD YOUR MODEL NOW']
-${exploreMarketPlaceBtn}        //market-home//button/a[contains(text(),'EXPLORE MARKETPLACE')]
-${signInLink}            //ul[@ng-show='successfulLoginSigninSignup']//a[@class='no-outline' and contains(text(),'Sign In')]
+${homeLink}                //header-nav[@class='mdl-layout__header is-casting-shadow']//a[@href='#/home']
+${addYourModelBtn}     //main[@class='mdl-layout__content initialVal ']//section//button[@alt='ADD YOUR MODEL NOW']
+${exploreMarketPlaceBtn}        //main[@class='mdl-layout__content initialVal ']//section//button/a[contains(text(),'EXPLORE MARKETPLACE')]
+${signInLink}            //header-nav[@class='mdl-layout__header is-casting-shadow']//ul[@ng-show='successfulLoginSigninSignup']//a[@class='no-outline' and contains(text(),'Sign In')]
 ${loginEmailAddressEntry}  //input[@name='userName']
 ${loginPassword}        //input[@name='userPass']
 ${signInButton}         //button[@ng-click='signin()']
 ${loginAccountInfo}    //*[@id='account-info']
 ${myModelIcon}        //a[@title='My Models']
 ${singOut}           //a[@ng-click='logout()']/span[@class='icon-logout']
+${acumos_logo_without_login}     //header-nav[@class='mdl-layout__header is-casting-shadow']//span[@class='accumos-header-logo']/img[@title='Acumos']
 
 ${designStudioIcon}   //a[@title='Design Studio']
-${designStudioTitle}  //design-studio//span[contains(text(),'Design Studio')]        
+${designStudioTitle}  //span[@class='headline mob-disblock' and contains(text(),'Design Studio')]        
 ${marketPlaceIcon}     //a[@title='Marketplace']
-${myModelPageTitle}    //section[@class='pageheadsection']/div/div/span
+${myModelPageTitle}    //section[@class='pageheadsection mob-pageheadsection1']/div/div/span
 ${siteAdminIcon}       //a[@title='Site Admin']
 ${siteAdminPageTitle}  //section//div/span[contains(text(),'Site Admin')]
 
@@ -71,8 +72,8 @@ ${submitToPublicationBtn_Public}           //button[contains(text(),'Submit to P
 ${publishToPublicMarketplaceCompleted}    //a[@title='Publish to Public Marketplace']//div/ul[@class='green']/li[contains(text(),'Completed')]
 
 
-${marketPlacePageTitle}    //market-place//section[@class='pageheadsection']//span[contains(text(),'Marketplace')]
-${onBoardingByWebPageTitle}     //model-resource//span[contains(text(),'On-Boarding Model')]
+${marketPlacePageTitle}    //span[@class='headline mob-disblock' and contains(text(),'Marketplace')]
+${onBoardingByWebPageTitle}     //span[@class='headline mob-disblock' and contains(text(),'On-Boarding Model')]
 ${searchModelTxtbox}     //*[@id='module-search']
 ${imageToSelect}      //div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img
 ${manageMyModelBtn}   //button[contains(@href,'modelEdit')]
@@ -107,13 +108,19 @@ ${UploadImage_Completed_company}    //div[@id='company-market']//span[@ng-show='
 ${submitToPublicationBtn_Company}           //button[contains(text(),'Submit to Publication') and contains(@ng-click,'OR')]
 ${publishToCompanyMarketplaceCompleted}    //a[@title='Publish to Company Marketplace']//div/ul[@class='green']/li[contains(text(),'Completed')]
 
+#Delete Model 
+${DeleteModelTab}        //a[contains(@title,'Delete Model')]
+${DeleteButton_MyModels}    //*[@id='manage-models']//button[@title='Delete']
+${DeletedModel_InMyModels}  //div[@ng-if='hideDelete']/div/div/div[@ng-show='Viewtile']/div[1]//div[@class='tilecontainer1']/label/span
 
 
 ${onBoardingModelIcon}                  //a[@title='Modeler Resources']
 ${onBoardingByWebTab}                   //md-tabs-canvas[@role='tablist']//md-tab-item[2]/span[contains(text(),'On-Boarding By Web')]
 ${chooseToolkitBtn}                    //span[contains(text(),'Choose Toolkit')]
+${ChooseToolkit_Scikit_learn_Rd_btn}    //div[@id='chooseToolKit']//md-radio-button[@value='Scikit-Learn']/div[1]
 ${scikit_RadioBtn}                     //md-radio-button[@value='Scikit-Learn']/div[1]
 ${toolkitInstallationChkbox}           //input[@type='checkbox' and @ng-model='install']
 ${UploadModelBtn_Onboarding}                                            //span[contains(text(),'Upload Model Bundle')]
+${browseBtn_upload}                    //*[@id='bundleuploadid']
 ${browseBtn}    //*[@id='file']
 ${uploadModel_DoneBtn}    //*[@id='uploadModel']//span[contains(text(),'Done')] 

@@ -17,11 +17,12 @@
 # ===============LICENSE_END=========================================================
 *** variables ***
 #Acumos Configurations
-${BROWSER}                 chrome
+${BROWSER}                 Firefox
 ${URL}    
 
 #Acumos Data#
 ${username}                  
 ${password}                  
 ${SearchModelName_Public}   Test_Public_Model
-${SearchModelName_Company}  Test_Company_Model  
+${SearchModelName_Company}  Test_Company_Model
+${DeleteModelName}          DA  
