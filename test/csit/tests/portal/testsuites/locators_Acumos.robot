@@ -31,7 +31,7 @@ ${loginPassword}        //input[@name='userPass']
 ${signInButton}         //button[@ng-click='signin()']
 ${loginAccountInfo}    //*[@id='account-info']
 ${myModelIcon}        //a[@title='My Models']
-${singOut}           //a[@ng-click='logout()']/span[@class='icon-logout']
+${signOut}           //a[@ng-click='logout()']/span[@class='icon-logout']
 ${acumos_logo_without_login}     //header-nav[@class='mdl-layout__header is-casting-shadow']//span[@class='accumos-header-logo']/img[@title='Acumos']
 
 ${designStudioIcon}   //a[@title='Design Studio']
@@ -75,7 +75,10 @@ ${publishToPublicMarketplaceCompleted}    //a[@title='Publish to Public Marketpl
 ${marketPlacePageTitle}    //span[@class='headline mob-disblock' and contains(text(),'Marketplace')]
 ${onBoardingByWebPageTitle}     //span[@class='headline mob-disblock' and contains(text(),'On-Boarding Model')]
 ${searchModelTxtbox}     //*[@id='module-search']
-${imageToSelect}      //div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img
+${check_Image_loaded}      //div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img
+${imageToPublish_Company}    //div[@class='grid-outer-wrapper']/div[1]/div[@ng-show='Viewtile']/div[1]//div[@class='mpdetailscontainer']/div[@class='tilecontainer1']/label/span
+${imageToPublish_Public}    //div[@class='grid-outer-wrapper']/div[1]/div[@ng-show='Viewtile']/div[1]//div[@class='mpdetailscontainer']/div[@class='tilecontainer1']/label/span   
+${imageToDelete}    //div[@class='grid-outer-wrapper']/div[1]/div[@ng-show='Viewtile']/div[1]//div[@class='mpdetailscontainer']/div[@class='tilecontainer1']/label/span
 ${manageMyModelBtn}   //button[contains(@href,'modelEdit')]
 ${publishToPublicMarketplaceTab}    //a[contains(@ng-click,'Publish to Public Marketplace')]
 ${SolutionPublishedSuccessfulMsg}   //span[contains(text(),'Solution Published Successfully')
@@ -114,13 +117,23 @@ ${DeleteButton_MyModels}    //*[@id='manage-models']//button[@title='Delete']
 ${DeletedModel_InMyModels}  //div[@ng-if='hideDelete']/div/div/div[@ng-show='Viewtile']/div[1]//div[@class='tilecontainer1']/label/span
 
 
+#Site Admin Dashboard
+${monitoring_tab}    //a[@ng-click='menuName = "Monitoring"']
+${user_Management_Tab}    //a[@ng-click='menuName = "User Management"']
+${site_Configuration_Tab}    //a[@ng-click='menuName = "Site Configuration"']
+${federation_Tab}    //a[@ng-click='menuName = "Federation"']
+${requests}    //a[@ng-click='menuName = "Requests"']
+${configure_workflows}    //a[@ng-click='menuName = "Validation"']  
+
+
+
+
 ${onBoardingModelIcon}                  //a[@title='Modeler Resources']
 ${onBoardingByWebTab}                   //md-tabs-canvas[@role='tablist']//md-tab-item[2]/span[contains(text(),'On-Boarding By Web')]
 ${chooseToolkitBtn}                    //span[contains(text(),'Choose Toolkit')]
 ${ChooseToolkit_Scikit_learn_Rd_btn}    //div[@id='chooseToolKit']//md-radio-button[@value='Scikit-Learn']/div[1]
 ${scikit_RadioBtn}                     //md-radio-button[@value='Scikit-Learn']/div[1]
 ${toolkitInstallationChkbox}           //input[@type='checkbox' and @ng-model='install']
+${UploadFile_Field}                    //*[@id='uploadModel']//input[@ng-model='filename']
 ${UploadModelBtn_Onboarding}                                            //span[contains(text(),'Upload Model Bundle')]
-${browseBtn_upload}                    //*[@id='bundleuploadid']
-${browseBtn}    //*[@id='file']
 ${uploadModel_DoneBtn}    //*[@id='uploadModel']//span[contains(text(),'Done')] 
