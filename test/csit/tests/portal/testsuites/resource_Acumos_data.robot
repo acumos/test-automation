@@ -23,6 +23,7 @@ ${URL}
 #Acumos Data#
 ${username}                  
 ${password}                  
-${SearchModelName_Public}   Test_Public_Model
-${SearchModelName_Company}  Test_Company_Model
-${DeleteModelName}          DA  
+${SearchModelName_Public}   Pub_0806_Model    #Should be unpublished
+${SearchModelName_Company}  Company_0806_Model    #Should be unpublished
+${DeleteModelName}          Delete_0806_Model    #Should be unpublished    
+${SearchModelName_MyModel}  Gen_0806_Model    #Should be unpublished  
