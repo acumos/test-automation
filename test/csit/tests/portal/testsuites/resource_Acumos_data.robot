@@ -25,4 +25,5 @@ ${username}
 ${password}                  
 ${SearchModelName_Public}   Test_Public_Model
 ${SearchModelName_Company}  Test_Company_Model
-${DeleteModelName}          DA  
+${DeleteModelName}          DA
+${SearchModelName_MyModel}  WEMPub_2505_Model
