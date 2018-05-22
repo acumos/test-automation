@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "951b06d0_e2686572",
+        "filename": "test/csit/tests/portal/testsuites/locators_Acumos.robot",
+        "patchSetId": 2
+      },
+      "lineNbr": 28,
+      "author": {
+        "id": 51
+      },
+      "writtenOn": "2018-05-22T20:25:41Z",
+      "side": 1,
+      "message": "both locators are not valid in the new version with the Carousel feature addYourModelBtn and exploreMarketPlaceBtn",
+      "range": {
+        "startLine": 26,
+        "startChar": 1,
+        "endLine": 28,
+        "endChar": 1
+      },
+      "revId": "bbb55d7276a52b0ff721dff6a921a5b70d33af5a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
