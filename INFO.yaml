@@ -1,0 +1,48 @@
+---
+project: 'test-automation'
+project_creation_date: '2018-02-28'
+project_category: ''
+lifecycle_state: 'Incubation'
+project_lead: &acumos_test-automation_ptl
+    name: 'Ken Kristiansen'
+    email: 'kk4281@att.com'
+    id: 'kk4281'
+    company: 'ATT'
+    timezone: 'America/New_York'
+primary_contact: *acumos_test-automation_ptl
+issue_tracking:
+    type: 'jira'
+    url: 'https://jira.acumos.org/projects/ACUMOS'
+    key: 'ACUMOS'
+mailing_list:
+    type: 'groups.io'
+    url: 'https://lists.acumos.org'
+    tag: '<[sub-project_name]>'
+realtime_discussion:
+    type: 'irc'
+    server: 'freenode.net'
+    channel: '#acumos'
+meetings:
+    - type: ''
+      agenda: ''
+      url: ''
+      server: ''
+      channel: ''
+      repeats: ''
+      time: ''
+repositories:
+    - 'test-automation'
+committers:
+    - <<: *acumos_test-automation_ptl
+    - name: 'Aimee Ukasick'
+      email: 'aimeeu@research.att.com'
+      company: 'ATT'
+      id: 'aimeeu'
+      timezone: 'America/Chicago'
+    - name: 'Sumit Ranjan'
+      email: 'SR00125918@TechMahindra.com'
+      company: 'TechMahindra'
+      id: 'sumitr'
+      timezone: ''
+tsc:
+    approval: 'https://lists.acumos.org/g/tscgeneral'
