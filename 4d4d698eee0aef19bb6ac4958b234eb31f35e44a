@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "7322b37f_cc4ceed4",
+        "filename": "INFO.yaml",
+        "patchSetId": 1
+      },
+      "lineNbr": 46,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2018-07-03T17:56:20Z",
+      "side": 1,
+      "message": "Please add Asia/Kolkata",
+      "range": {
+        "startLine": 46,
+        "startChar": 6,
+        "endLine": 46,
+        "endChar": 14
+      },
+      "revId": "4d4d698eee0aef19bb6ac4958b234eb31f35e44a",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": false
+    }
+  ]
+}
