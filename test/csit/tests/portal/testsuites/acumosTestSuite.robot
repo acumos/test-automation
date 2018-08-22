@@ -628,7 +628,7 @@ Verify adding new user in User Management
     Wait Until Keyword Succeeds  45   5  Element Text Should Be    ${registeredAddUser_uname}    ${addUser_Data}
     Wait Until Keyword Succeeds  45   5  Element Text Should Be    ${registeredAddUser_email}    ${addUser_Data}@test.com
     Wait Until Keyword Succeeds  45   5  Element Text Should Be    ${registeredAddUser_role_MLPSysUser}    MLP System User
-    Wait Until Keyword Succeeds  45   5  Element Text Should Be    ${registeredAddUser_status}    Active
+    Wait Until Keyword Succeeds  45   5  Element Text Should Be    ${registeredAddUser_status}    Pending
 
 Verify Add User By Login With Newly Added User
     Open Browser    ${URL}   ${BROWSER}
