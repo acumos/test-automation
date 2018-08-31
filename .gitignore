@@ -5,7 +5,9 @@
 #  logfiles
 *.log
 # test results
+results
 Acumos/test-output
 .classpath
 .project
 /.settings/
+.idea
