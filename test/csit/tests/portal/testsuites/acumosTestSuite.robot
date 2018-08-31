@@ -97,7 +97,11 @@ Setup Browser    #Launch web browser  i.e Firefox
    Set Selenium Speed    1s        
    Sleep    5s 
      
+<<<<<<< HEAD
  Verify header    #verify header links i.e Home,Marketplace,Modeler Resources
+=======
+Verify header
+>>>>>>> 0a5bbd3... WIP DRAFT Automated API test scripts
     Wait Until Element Is Visible    ${homeLink}  10s 
     Wait Until Element Is Visible    ${marketplaceLink}    10s   
     Wait Until Element Is Visible    ${modelerResorcesLink}    10s
@@ -136,7 +140,11 @@ Verify Login    #verify successful login on portal marketplace
     Wait Until Element Is Visible    ${loginAccountInfo}    25s
     Element Should Be Visible    ${loginAccountInfo}    
   
+<<<<<<< HEAD
  Verify Marketplace Tab    #Verify MarketPlace page should displayed after clicking on Marketplace Tab 
+=======
+Verify Marketplace Tab
+>>>>>>> 0a5bbd3... WIP DRAFT Automated API test scripts
    Wait Until Element Is Visible    ${marketPlaceIcon}    10s
    Click Element    ${marketPlaceIcon}
    Wait Until Element Is Visible    ${marketPlacePageTitle}  10s
@@ -149,7 +157,11 @@ Verify My Models Tab    #Verify My Models page should displayed after clicking o
    Element Should Contain    ${myModelPageTitle}     My Models 
 
                 
+<<<<<<< HEAD
  Verify Design Studio Tab    #Verify Design Studio page should displayed after clicking on Design Studio Tab
+=======
+Verify Design Studio Tab
+>>>>>>> 0a5bbd3... WIP DRAFT Automated API test scripts
     Wait Until Element Is Visible    ${designStudioIcon}   10s
     Click Element    ${designStudioIcon}
     Wait Until Element Is Visible    ${designStudioTitle}   10s
@@ -244,6 +256,7 @@ Verify To Publish Solution In Public Marketplace    #Verify to publish the solut
      Wait Until Element Is Enabled    ${submitToPublicationBtn_Public}         10s    
      Click Element    ${submitToPublicationBtn_Public}
      Wait Until Element Is Visible    ${publishToPublicMarketplaceCompleted}        10s     
+<<<<<<< HEAD
      Element Should Be Visible    ${publishToPublicMarketplaceCompleted} 
      
 Verify The Published Solution In Published To Public Marketplace    #Verify already published(in public) is displaying in My models in Published to Public Marketplace
@@ -257,6 +270,11 @@ Verify The Published Solution In Published To Public Marketplace    #Verify alre
 Verify To Publish Solution In Company Marketplace    #Verify to publish the solution/model in company marketplace 
      Wait Until Element Is Visible    ${homeIcon}    10s   
      Click Link        ${homeIcon}
+=======
+     Element Should Be Visible    ${publishToPublicMarketplaceCompleted}    
+
+Verify To Publish Solution In Company Marketplace
+>>>>>>> 0a5bbd3... WIP DRAFT Automated API test scripts
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon} 
      Wait Until Element Is Visible    ${searchModelTxtbox}   60S
@@ -707,12 +725,20 @@ Verify Change Password On Account Setting Page
      Wait Until Element Is Visible    ${loginAccountInfo}    25s
      Element Should Be Visible    ${loginAccountInfo}        
              
+<<<<<<< HEAD
  Verify Logout
      Wait Until Element Is Visible    ${signOut}    10s
      Click Element        ${signOut}
      Wait Until Keyword Succeeds     60     5    Wait Until Element Is Visible    ${signInLink}   30s
      Wait Until Keyword Succeeds     60     5    Element Should Be Visible    ${signInLink}
+=======
+Verify Logout
+     Wait Until Element Is Visible    ${singOut}    10s
+     Click Element        ${singOut}
+     Wait Until Element Is Visible    ${signInLink}     30s
+     Element Should Be Visible    ${signInLink}
+>>>>>>> 0a5bbd3... WIP DRAFT Automated API test scripts
                
- Tear Down   
+Tear Down
   [Documentation]   Close all browsers
    Close All Browsers
