@@ -191,7 +191,7 @@ ${searchUser_UserManagement}    //*[contains(concat(' ', @class, ' '), 'user-mgm
 ${registeredAddUser_uname}    //tbody[@ng-repeat='val in userDetails | orderBy:orderByField:reverseSort | filter : search']/tr/td[2]
 ${registeredAddUser_email}    //tbody[@ng-repeat='val in userDetails | orderBy:orderByField:reverseSort | filter : search']/tr/td[3]
 ${registeredAddUser_role_MLPSysUser}    //tbody[@ng-repeat='val in userDetails | orderBy:orderByField:reverseSort | filter : search']/tr/td[4]/div[1]
-${registeredAddUser_status}    //tbody[@ng-repeat='val in userDetails | orderBy:orderByField:reverseSort | filter : search']/tr/td[5]/label
+${registeredAddUser_status}    //tbody[@ng-repeat='val in userDetails | orderBy:orderByField:reverseSort | filter : search'][1]/tr/td[5]/label
 
 
 #Delete Published Model
