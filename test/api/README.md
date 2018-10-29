@@ -1,3 +1,4 @@
+<!---
 .. ===============LICENSE_START=======================================================
 .. Acumos CC-BY-4.0
 .. ===================================================================================
@@ -15,17 +16,13 @@
 .. See the License for the specific language governing permissions and
 .. limitations under the License.
 .. ===============LICENSE_END=========================================================
+-->
 
-===============
-Test Automation
-===============
-    
-.. toctree::
-       :maxdepth: 2
+"tests" directory:
+The "tests/component" directory contains test scripts for single components.
+The "tests/integration" directory contains test scripts that require calling more than one component.
 
-       release-notes
-       developer_guide
-       user_guide
-       api_testing
-       tutorials/index
+The "tests/scratch" directory contains scripts that test a discrete piece of functionality, similar to a unit test in Java or Python. These tests don't involve a component.
 
+"resources" directory:
+contains common keywords and variables 
