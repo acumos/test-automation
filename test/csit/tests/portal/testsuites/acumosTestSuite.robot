@@ -1,106 +1,98 @@
-# ===============LICENSE_START=======================================================
-# Acumos Apache-2.0
-# ===================================================================================
-# Copyright (C) 2017-2018 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
-# ===================================================================================
-# This Acumos software file is distributed by AT&T and Tech Mahindra
-# under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# This file is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ===============LICENSE_END=========================================================
 *** Settings ***
 Documentation    This is RobotFrame work script
 Library    Selenium2Library
 Library    OperatingSystem
-Library         DateTime  
-Library           Collections
+Library    DateTime  
+Library     Collections
 Library    Screenshot
 Library    String
 Library    Process
 Resource    locators_Acumos.robot
-Resource    resource_Acumos_data.robot 
+Resource    resource_Acumos_data.robot
 
 
-*** Test Cases ***
+    
+*** Test Cases *** 
 Launch Browser
-  Setup Browser
+  Setup Browser    
 Header Validation
-   Verify header
+   Verify header  
 Discover Acumos Section
     Verify Discover Acumos Section   
-Explore Marketplace Button Navigation
-  Verify Explore Marketplace Button
-Add Your Model Button Navigation
-  Verify Add Your Model Button
+# Explore Marketplace Button Navigation
+  # Verify Explore Marketplace Button
+# Add Your Model Button Navigation 
+  # Verify Add Your Model Button
 Login Portal
-  Verify Login
-Maketplace Tab Verification  
+  Verify Login              
+Marketplace Tab Verification  
   Verify Marketplace Tab
 My Models Tab Verification
-    Verify My Models tab  
+  Verify My Models tab  
 Design Studio Tab Verification  
   Verify Design Studio Tab
 Site Admin Tab Verification  
-  Verify Site Admin Tab
+   Verify Site Admin Tab
+Publish request tab verification
+    Verify Publish Request tab  
+# To verify data is sorting in ascending or descending order when user click on icons
+    # Verify data is sorting in ascending or descending order when user click on icons 
+# To verify delete icon is displaying on the error model(not in deleted section)
+    # Verify delete icon is displaying on the error model(not in deleted section)
 Search in My Models Page
     Verify Search Functionality  
+TO verify filter by category functionality
+  Verify filter by category functionality
 Publish Solution in Public Marketplace
-    Verify To Publish Solution In Public Marketplace
+   Verify To Publish Solution In Public Marketplace
 To verify Already Publish Solution In Published To Public Marketplace
-    Verify The Published Solution In Published To Public Marketplace 
+    Verify The Published Solution In Published To Public Marketplace
 To Verify the description available in published in public marketplace model
-    Verify the description available in published in public marketplace model          
+    Verify the description available in published in public marketplace model              
 Publish Solution in Company Marketplace
-    Verify To Publish Solution In Company Marketplace
+   Verify To Publish Solution In Company Marketplace
 To verify Already Publish Solution In Published To Company Marketplace
     Verify The Published Solution In Published To Company Marketplace
 To Verify the description available in published in Company marketplace model
-   Verify the description available in published in Company marketplace model      
+    Verify the description available in published in Company marketplace model        
 Model Delete In My Models For Unpublished Model    
-   Verify Delete Model In MyModels For Unpublished Model    
-Model Delete In My Models For Published Model   
+   Verify Delete Model In MyModels For Unpublished Model   
+Model Delete In My Models For Published Model    
    Verify Delete Model In MyModels For Published Model    
 To Publish already Published Public Model Into Company Marketplace
-    Verify To Publish already Published Public Model Into Company Marketplace   
+    Verify To Publish already Published Public Model Into Company Marketplace       
 To Publish already Published Company Model Into Public Marketplace
     Verify Publishing already Published Company Model Into Public Marketplace
 Dashboard options in Site Admin
-    Verify dashboard options in Site Admin
+   Verify dashboard options in Site Admin         
 Model Details page Tabs
    Verify Model Details page Tabs
 To Verify Solution ID is displaying on Model Details Page
     Verify Solution ID is displaying on Model Details Page
 To Verify Solution ID is displaying on Manage My Model Page
-    Verify Solution ID is displaying on Manage My Model Page    
+    Verify Solution ID is displaying on Manage My Model Page        
 Manage My Model Management Options
    Verify Manage My Model Management Options
 To Check Status Of Unpublished Solution in Model Details page
-    Verify the Status of Unpublished solution in Model details page
+     Verify the Status of Unpublished solution in Model details page
 To Check Status Of Deleted Solution in Model Details page
      Verify the Status of Deleted solution in Model details page
 To Verify that Manage My Model Button for Deleted solution is disabled     
-     Verify that Manage My Model Button for Deleted solution is disabled      
+     Verify that Manage My Model Button for Deleted solution is disabled                               
 Account Settings Page Navigation    
-    Verify Navigation to Account Settings Page
+     Verify Navigation to Account Settings Page
 To Verify Adding Author Tab Is Present In Manage My Models Page
     Verify Adding Author Tab Is Present In Manage My Models Page        
 Adding New Author In Manage My Models Page
-    Verify Adding New Author In Manage My Models Page   
+    Verify Adding New Author In Manage My Models Page    
 Add New User In User Management and User Activation        
-   Verify adding new user in User Management and User Activation
+   Verify adding new user in User Management and User Activation        
 To verify that Manage Themes Displays Show Your Interests popup
     Verify that Manage Themes Displays Show Your Interests popup
 To Verify the user is able to select the theme title in Show Your Interests Popup
     Verify the user is able to select the theme title in Show Your Interests Popup    
 To Verify Continue and Back button on Show Your Interests Popup
-    Verify Continue and Back button on Show Your Interests Popup     
+    Verify Continue and Back button on Show Your Interests Popup          
 Logout Portal
   Verify Logout     
 Verify Add User By Login With Newly Added User    
@@ -116,105 +108,190 @@ To Verify SignUp for Invalid Inputs for Username and Email
 Tear Down browser
   Tear Down
 
-  
+
    
 *** Keywords ***
 Setup Browser    #Launch web browser  i.e Firefox
-   Open Browser    ${URL}   ${BROWSER}
-   Set Selenium Speed    1s        
-   Sleep    5s 
+   Open Browser    ${URL}   ${BROWSER}       ff_profile_dir=${FF_PROFILE}
+   Set Selenium Speed    1s 
+   Check Header Status  #do not commit in gerrit
+
+    
+Check Header Status     #do not commit in gerrit
+     ${status_header}  ${result}=    Run keyword and ignore error    Element Should Be Visible      ${homeLink}   30s  #${acumos_logo_without_login}
+     Run Keyword If      "${status_header}" == "FAIL"     Refresh Page    
+
+ Refresh Page    #do not commit in gerrit
+   Reload Page
+   sleep  5s
+   Check Header Status
+      
      
- Verify header    #verify header links i.e Home,Marketplace,Modeler Resources
+Verify header    #verify header links i.e Home,Marketplace,Modeler Resources   
     Wait Until Element Is Visible    ${homeLink}  10s 
     Wait Until Element Is Visible    ${marketplaceLink}    10s   
     Wait Until Element Is Visible    ${modelerResorcesLink}    10s
-    
+
 Verify Discover Acumos Section    #Verify if the links in the Discover acumos section are displayed
    Wait Until Element Is Visible    ${homeLink}  10s 
-   Wait Until Keyword Succeeds  120   10    Wait Until Element Is Visible    ${discover_Marketplace}    30   
+   Wait Until Keyword Succeeds  120   10    Wait Until Element Is Visible    ${discover_Marketplace}    30s     
    Wait Until Element Is Visible    ${discover_DesignStudio}    10s
    Wait Until Element Is Visible    ${discover_SDN_ONAP}    10s 
    Wait Until Element Is Visible    ${discover_TeamUp}    10s
-   Wait Until Element Is Visible    ${discover_Onborading}    10s     
+   Wait Until Element Is Visible    ${discover_Onborading}    10s         
        
-Verify Explore Marketplace Button    #Verify MarketPlace page should displayed after clicking on Explore MarketPlace Button
+ Verify Explore Marketplace Button    #Verify MarketPlace page should displayed after clicking on Explore MarketPlace Button
+     #Sleep     20s
      Click Link    ${homeLink}
      Wait Until Element Is Visible    ${exploreMarketPlaceBtn}      10s    
      Click Element    ${exploreMarketPlaceBtn}
      Wait Until Element Is Visible  ${marketPlacePageTitle}    10s
      Element Should Be Visible    ${marketPlacePageTitle} 
        
-Verify Add Your Model Button    #Verify Modular resources  page should displayed after clicking on Add your model button
+Verify Add Your Model Button
     Click Link        ${homeLink}
-    Wait Until Element Is Visible    ${addYourModelBtn}      20s     
-    Click Button   ${addYourModelBtn}
-    Wait Until Element Is Visible    ${onBoardingByWebPageTitle}     60s
+    Wait Until Element Is Visible    ${addYourModelBtn}      20s  
+    Click Button    ${addYourModelBtn}  
+    Wait Until Element Is Visible    ${onBoardingByWebPageTitle}     20s
     Element Should Be Visible    ${onBoardingByWebPageTitle}  
 
-Verify Login    #verify successful login on portal marketplace
+Verify Login    #verify successful login on portal marketplace    
     Click Link        ${homeLink}
     Wait Until Element Is Visible    ${signInLink}     15s
     Click Element        ${signInLink}
+    #sleep  15s
     Wait Until Element Is Visible    ${loginEmailAddressEntry}   25s   
-    Input Text    ${loginEmailAddressEntry}    ${username}  
+    Input Text    ${loginEmailAddressEntry}    ${username} 
+    #sleep  15s 
     Wait Until Element Is Visible    ${loginPassword}    25s
     Input Text    ${loginPassword}    ${password}
     Click Button    ${signInButton}
-    Wait Until Element Is Visible    ${loginAccountInfo}    25s
-    Element Should Be Visible    ${loginAccountInfo}    
+    Wait Until Element Is Visible    ${loginAccountInfo}    30s
+    Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible    ${loginAccountInfo}    20s
+    Element Should Be Visible    ${loginAccountInfo}
     ${status_interestPopup}  ${result}=    Run keyword and ignore error    Wait Until Element Is Visible      ${interestPopup_closeBtn}    30s
-    Run Keyword If      "${status_interestPopup}" == "PASS"     Click Element    ${interestPopup_closeBtn}   
-     
- Verify Marketplace Tab    #Verify MarketPlace page should displayed after clicking on Marketplace Tab 
-   Wait Until Element Is Visible    ${marketPlaceIcon}    10s
+    Run Keyword If      "${status_interestPopup}" == "PASS"     Click Element    ${interestPopup_closeBtn} 
+  
+ Verify Marketplace Tab    #Verify MarketPlace page should displayed after clicking on Marketplace Tab     
+   Wait Until Element Is Visible    ${marketPlaceIcon}    10s    
    Click Element    ${marketPlaceIcon}
    Wait Until Keyword Succeeds  60   10    Wait Until Element Is Not Visible    ${overlay}    10s       
    Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible    ${marketPlacePageTitle}  10s    
-   Wait Until Element Is Visible    ${marketPlacePageTitle}  10s
    Element Should Be Visible    ${marketPlacePageTitle}
+
             
-Verify My Models Tab    #Verify My Models page should displayed after clicking on My Models Tab           
+Verify My Models Tab  #Verify My Models page should displayed after clicking on My Models Tab.         
    Wait Until Element Is Visible    ${myModelIcon}    10s
-   Double Click Element    ${myModelIcon}                            #Click Element    ${myModelIcon}
-   Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible     ${myModelPageTitle}  10s    #changed
-   Wait Until Element Is Visible     ${myModelPageTitle}  10s
-   Element Should Contain    ${myModelPageTitle}     My Models 
+   Double Click Element    ${myModelIcon}                            
+   Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible     ${myModelPageTitle}  10s    
+   Element Should Contain    ${myModelPageTitle}     My Models
 
                 
- Verify Design Studio Tab    #Verify Design Studio page should displayed after clicking on Design Studio Tab
+Verify Design Studio Tab    #Verify Design Studio page should displayed after clicking on Design Studio Tab
     Wait Until Element Is Visible    ${designStudioIcon}   10s
     Click Element    ${designStudioIcon}
     Wait Until Element Is Visible    ${designStudioTitle}   10s
     Element Should Be Visible    ${designStudioTitle}        
  
 
-Verify Site Admin Tab    #Verify site admin page should displayed after clicking on site admin Tab 
+Verify Site Admin Tab    #Verify site admin page should displayed after clicking on site admin Tab  
     Wait Until Element Is Visible    ${homeIcon}    10s      
-    Click Link        ${homeIcon}
+    Click Link        ${homeIcon}    
     Wait Until Element Is Visible    ${siteAdminIcon}   10s
     Click Element    ${siteAdminIcon}
-    Wait Until Element Is Visible    ${siteAdminPageTitle}   20s
+    Wait Until Element Is Visible    ${siteAdminPageTitle}   20s    
     Element Should Be Visible    ${siteAdminPageTitle}
+
+Verify Publish Request tab
+    Wait Until Element Is Visible    ${homeIcon}    10s      
+    Click Link        ${homeIcon}    
+    Wait Until Element Is Visible    ${publishRequestIcon}   10s
+    Click Element    ${publishRequestIcon}
+    Wait Until Element Is Visible    ${publishRequestPageTitle}   20s    
+    Element Should Be Visible    ${publishRequestPageTitle}   
+    
+Verify data is sorting in ascending or descending order when user click on icons
+    Wait Until Element Is Visible    ${homeIcon}    10s
+    Click Link        ${homeIcon}
+    Wait Until Element Is Visible    ${publishRequestIcon}    10s
+    Click Element    ${publishRequestIcon}
+    Wait Until Element Is Visible    ${Model_Name}    15s
+    Element Should Be Visible   ${Model_Name}
+    Click Element    ${Model_Name_AscDesc}
+    Wait Until Element Is Visible    ${Version}    15s
+    Element Should Be Visible   ${Version}
+    Click Element    ${Version_AscDesc}
+    Wait Until Element Is Visible    ${Requester}    15s
+    Element Should Be Visible   ${Requester}
+    Click Element    ${Requester_AscDesc}
+    Wait Until Element Is Visible    ${Created_Date}    25s
+    Element Should Be Visible   ${Created_Date}
+    Click Element    ${Created_Date_AscDesc}
+    Wait Until Element Is Visible    ${Status}    15s
+    Element Should Be Visible   ${Status}
+    Click Element    ${Status_AscDesc}
+    Wait Until Element Is Visible    ${Request_Status}    15s
+    Element Should Be Visible   ${Request_Status}
+    Click Element    ${Request_Status_AscDesc}
+    Wait Until Element Is Visible    ${Comments}    15s
+    Element Should Be Visible   ${Comments}
+    Click Element    ${Comments_AscDesc}
+    
+    
+Verify delete icon is displaying on the error model(not in deleted section)
+    Wait Until Element Is Visible    ${homeIcon}    10s
+    Click Link        ${homeIcon}
+    Wait Until Element Is Visible    ${myModelIcon}    10s
+    Click Link        ${myModelIcon}
+	Wait Until Element Is Visible    ${searchModelTxtbox}   60S
+    # Wait Until Element Is Visible    ${check_Err_Image_loaded}     60S
+    Click Element    ${searchModelTxtbox}
+    #Input Text    ${searchModelTxtbox}    #${SearchModelName_ErrorModel}
+    #Wait Until Keyword Succeeds  60   10  Element Text Should Be     ${imageToVerify_Err}    ${SearchModelName_ErrorModel}
+    sleep    30s
+    Wait Until Element Is Visible    ${DeleteBtn}    30s
+    Element Should Be Visible	${DeleteBtn}
+    Click Element    ${DeleteBtn}    	
+	
     
 Verify Search Functionality    #Verify search functionality in My Model
-     Wait Until Element Is Visible    ${homeIcon}    10s       
+     Wait Until Element Is Visible    ${homeIcon}    10s    
      Click Link        ${homeIcon}    
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded}     60S 
+     Wait Until Element Is Visible    ${searchModelTxtbox}   30s
+     Click Element    ${searchModelTxtbox}
+     # Wait Until Element Is Visible    ${check_Image_loaded}     60s 
      Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
-     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}    ${SearchModelName_MyModel}    
-    
+     Wait Until Keyword Succeeds  60   10  Element Text Should Be     ${imageToVerify}    ${SearchModelName_MyModel}   
+     sleep    30s
+     
+Verify filter by category functionality 
+     Wait Until Element Is Visible    ${homeIcon}    10s    
+     Click Link        ${homeIcon}    
+     Wait Until Element Is Visible    ${myModelIcon}    10s
+     Click Element    ${myModelIcon}
+     Wait until element is visible    ${filter_prediction}    10s
+     Click Element     ${filter_prediction}
+     Wait until element is visible    ${filter_classification}    10s
+     Click Element    ${filter_classification}
+     Wait until element is visible    ${filter_regression}    10s
+     Click Element     ${filter_regression}
+     Wait until element is visible    ${filter_dataTransformer}    10s
+     Click Element     ${filter_dataTransformer}
+              
+
 Verify To Publish Solution In Public Marketplace    #Verify to publish the solution/model in public marketplace 
      Wait Until Element Is Visible    ${homeIcon}    10s   
      Click Link        ${homeIcon}                            
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded}     60S 
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Click Element    ${searchModelTxtbox}
      Input Text    ${searchModelTxtbox}    ${SearchModelName_Public}
-     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToPublish_Public}    ${SearchModelName_Public}    
+     Wait Until Keyword Succeeds  60   10  Element Text Should Be     ${imageToPublish_Public}    ${SearchModelName_Public}    
+     Wait Until Element Is Visible    ${check_Image_loaded}    60s
+     sleep   10s
      Click Element    ${check_Image_loaded}
      Wait Until Element Is Visible    ${manageMyModelBtn}    60s
      Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
@@ -263,42 +340,62 @@ Verify To Publish Solution In Public Marketplace    #Verify to publish the solut
      Run Keyword If      "${status_ImageUploadedPub}" == "PASS"    Wait Until Element Is Visible    ${UploadImage_Completed_Public}    15s  
      Wait Until Element Is Enabled    ${submitToPublicationBtn_Public}         10s    
      Click Element    ${submitToPublicationBtn_Public}
+     #added
      Wait Until Element Is Visible    ${WithdrawRequestBtn_Public}    20s
      Click Element    ${PublishRequestIcon}
-     sleep    5s        
+     Wait Until Keyword Succeeds  60   10    Wait Until Element Is Not Visible    ${overlay}    10s
+     # Execute JavaScript    window.scrollTo(0,400)
+     # Wait Until Element Is Visible    ${showing_PublishReq_Drp}    10s
+     # Execute JavaScript    window.scrollTo(0,400)
+     # Click Element    ${showing_PublishReq_Drp}
+     # Wait Until Element Is Visible    ${show_100_PublishReq}    5s
+     sleep    5s
+     # Execute JavaScript    window.scrollTo(0,400)
+     # Click Element    ${showing_PublishReq_Drp}
+     # Wait Until Element Is Visible    ${show_100_PublishReq}    5s
+     # Click Element    ${show_100_PublishReq}
+     # Wait Until Keyword Succeeds  60   10    Wait Until Element Is Not Visible    ${overlay}    10s         
      Wait Until Element Is Visible    ${search_PublishRequest}    10s
      Input Text    ${search_PublishRequest}    ${SearchModelName_Public}
-     Wait Until Keyword Succeeds  60   10    Wait Until Element Contains    ${searchedModelNameForApproval}    ${SearchModelName_Public}    20s
+     Wait Until Keyword Succeeds  60   10    Wait Until Element Contains    ${searchedModelNameForApproval}    ${SearchModelName_Public}    30s
+     sleep    5s
      Click Element    ${approve_PublishRequest}
      Wait Until Element Is Visible    ${approveBtn}    10s
      Click Element    ${approveBtn}
-     Wait Until Element Is Visible    ${requestorStatus}  
-     Element Should Contain    ${requestorStatus}    Approved       
+     # Wait Until Element Is Visible    ${requestorStatus}  
+     Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible   ${requestorStatus}    30s      
+     sleep    10s 
+     Element Should Contain    ${requestorStatus}    Approved   
         
+     #Wait Until Element Is Visible    ${publishToPublicMarketplaceCompleted}        10s    #REMOVED     
+     #Element Should Be Visible    ${publishToPublicMarketplaceCompleted}        #removed
+     
+
 Verify The Published Solution In Published To Public Marketplace    #Verify already published(in public) is displaying in My models in Published to Public Marketplace
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded_PUB}     60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Wait Until Element Is Visible    ${check_Image_loaded_PUB}     60s
      Input Text    ${searchModelTxtbox}    ${SearchModelName_Public} 
-     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${image_Published_Public}    ${SearchModelName_Public}
+     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${image_Published_Public}    ${SearchModelName_Public}       
 
-Verify the description available in published in public marketplace model
-   Wait Until Keyword Succeeds  60   5    Wait Until Element Is Visible    ${check_Image_loaded_PUB}    10s
+Verify the description available in published in public marketplace model     
+   Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible    ${check_Image_loaded_PUB}    30s    #changed
    Click Element    ${check_Image_loaded_PUB}
    Wait Until Element Is Visible    ${PublishedDescription_PB}    10s
    Element Should Contain    ${PublishedDescription_PB}    Test Desc     
-            
-         
-Verify To Publish Solution In Company Marketplace    #Verify to publish the solution/model in company marketplace 
+
+ 
+Verify To Publish Solution In Company Marketplace     #Verify to publish the solution/model in company marketplace
      Wait Until Element Is Visible    ${homeIcon}    10s    
      Click Link        ${homeIcon}                           
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon}    
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded}     60S    
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Wait Until Element Is Visible    ${check_Image_loaded}     60s    
      Input Text    ${searchModelTxtbox}    ${SearchModelName_Company}
      Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToPublish_Company}    ${SearchModelName_Company}
+     sleep    15s
      Click Element    ${check_Image_loaded}   
      Wait Until Element Is Visible    ${manageMyModelBtn}    60s
      Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
@@ -328,8 +425,9 @@ Verify To Publish Solution In Company Marketplace    #Verify to publish the solu
      Run Keyword If      "${status_modelCategoryComp}" == "PASS"   Wait Until Element Is Enabled    ${ModelCategory_Done_Company}
      Run Keyword If      "${status_modelCategoryComp}" == "PASS"   Click Element    ${ModelCategory_Done_Company}
      Run Keyword If      "${status_modelCategoryComp}" == "PASS"     Wait Until Element Is Visible     ${ModelCategory_Completed_Company}    15s
-     Click Element    ${SkipModelDocumentsCheckbox_Company}
-     Click Element    ${SkipModel_DoneBtn_Company}
+     Click Element    ${SkipModelDocumentsCheckbox_Company} 
+     Wait Until Element Is Visible    ${SkipModel_DoneBtn_Company}  15s
+     Click Element    ${SkipModel_DoneBtn_Company}  
      ${status_TagPresentComp}  ${result}=    Run keyword and ignore error    Element Should Not Be Visible    ${ModelTag_Completed_Company}
      Run Keyword If      "${status_TagPresentComp}" == "PASS"   Wait Until Element Is Visible     ${ModelTag_Company}    10s
      Run Keyword If      "${status_TagPresentComp}" == "PASS"    Click Element    ${ModelTagsBtn_company}    #added 
@@ -350,54 +448,52 @@ Verify To Publish Solution In Company Marketplace    #Verify to publish the solu
      Click Element    ${submitToPublicationBtn_Company}
      Wait Until Element Is Visible    ${publishToCompanyMarketplaceCompleted}        10s     
      Element Should Be Visible    ${publishToCompanyMarketplaceCompleted}
-   
+
 Verify The Published Solution In Published To Company Marketplace    #Verify already published(in company) is displaying in My models in Published to Company Marketplace
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Click Element    ${searchModelTxtbox}    
+     # Wait Until Element Is Visible    ${check_Image_loaded_COM}     60s
      Input Text    ${searchModelTxtbox}    ${SearchModelName_Company} 
      Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${image_Published_Company}    ${SearchModelName_Company}
-
-Verify the description available in published in Company marketplace model
-  Wait Until Keyword Succeeds  60   5    Wait Until Element Is Visible    ${check_Image_loaded_COM}     10s    #changed
-  Click Element    ${check_Image_loaded_COM}
-  Wait Until Element Is Visible    ${PublishedDescription_OR}    10s
-  Element Should Contain    ${PublishedDescription_OR}    Test Desc      
-      
-Verify Delete Model In MyModels For Unpublished Model    #Verify to delete the solution/model in my models
+     
+Verify the description available in published in Company marketplace model     
+   Wait Until Keyword Succeeds  60   10    Wait Until Element Is Visible    ${check_Image_loaded_COM}     30s    #changed
+   Click Element    ${check_Image_loaded_COM} 
+   Wait Until Keyword Succeeds  60   5    Wait Until Element Is Visible    ${PublishedDescription_OR}    10s
+   Element Should Contain    ${PublishedDescription_OR}    Test Desc            
+ 
+Verify Delete Model In MyModels For Unpublished Model    #Verify to delete the solution/model in my models  
      Wait Until Element Is Visible    ${homeIcon}    10s    
-     Click Link        ${homeIcon}
+     Click Link        ${homeIcon}                            
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon} 
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded}     60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Wait Until Element Is Visible    ${check_Image_loaded}     60s    
      Input Text    ${searchModelTxtbox}    ${DeleteModelName}
-     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToDelete}    ${DeleteModelName}
-     #Sleep  40s
+     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToDelete}    ${DeleteModelName}  
      Click Element    ${check_Image_loaded}
      Wait Until Element Is Visible    ${manageMyModelBtn}    60s
      Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
      Click Element       ${manageMyModelBtn}
-     Wait Until Element Is Visible    ${DeleteModelTab}    60s
+     Wait Until Element Is Visible    ${DeleteModelTab}    60s    
      Click Element     ${DeleteModelTab}
      Wait Until Element Is Visible    ${DeleteButton_MyModels}    10s
      Click Element    ${DeleteButton_MyModels}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
      Input Text    ${searchModelTxtbox}    ${DeleteModelName}
-     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${DeletedModel_InMyModels}    ${DeleteModelName}
+     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${DeletedModel_InMyModels}    ${DeleteModelName}     
 
 Verify Delete Model In MyModels For Published Model    
      Wait Until Element Is Visible    ${homeIcon}    10s    
      Click Link        ${homeIcon}                            
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon} 
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60S    
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60s    
      Input Text    ${searchModelTxtbox}    ${Published_DeleteModelName}
-     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToDelete_Published}    ${Published_DeleteModelName}
-     #Sleep  60s
-     #Element Should Contain     ${DeleteModelName}     ${DeleteModelName}    
+     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToDelete_Published}    ${Published_DeleteModelName} 
      Click Element    ${check_Image_loaded_COM}
      Wait Until Element Is Visible    ${manageMyModelBtn}    60s
      Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
@@ -406,20 +502,21 @@ Verify Delete Model In MyModels For Published Model
      Click Element     ${DeleteModelTab}
      Wait Until Element Is Visible    ${DeleteButton_MyModels}    10s
      Click Element    ${DeleteButton_MyModels}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
      Input Text    ${searchModelTxtbox}    ${Published_DeleteModelName}
      Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${DeletedModel_InMyModels}    ${Published_DeleteModelName}
 
-Verify To Publish Already Published Public Model Into Company Marketplace 
+ Verify To Publish Already Published Public Model Into Company Marketplace 
+    
      Wait Until Element Is Visible    ${homeIcon}    10s    
      Click Link        ${homeIcon} 
      Wait Until Element Is Visible    ${myModelIcon}    10s
      Click Element    ${myModelIcon}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded_PUB}     60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Wait Until Element Is Visible    ${check_Image_loaded_PUB}     60s
      Input Text    ${searchModelTxtbox}    ${SearchModelName_Public} 
      Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${image_Published_Public}    ${SearchModelName_Public}
-     Wait Until Keyword Succeeds  60   5    Wait Until Element Is Visible    ${check_Image_loaded_PUB}     10s
+     Wait Until Keyword Succeeds  60   5    Wait Until Element Is Visible    ${check_Image_loaded_PUB}     10s    #changed
      Click Element    ${check_Image_loaded_PUB}   
      Wait Until Element Is Visible    ${manageMyModelBtn}    60s
      Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
@@ -476,11 +573,12 @@ Verify Publishing already Published Company Model Into Public Marketplace
      Wait Until Element Is Visible    ${homeIcon}    10s    
      Click Link        ${homeIcon} 
      Click Element        ${myModelIcon}
-     Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60S
+     Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60s
      Input Text    ${searchModelTxtbox}    ${SearchModelName_Public} 
      Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${image_Published_Company}    ${SearchModelName_Public}
-     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60S
+     Wait Until Keyword Succeeds  60   5    Wait Until Element Is Visible    ${check_Image_loaded_COM}     10s
+     Wait Until Element Is Visible    ${check_Image_loaded_COM}     60s
      Click Element    ${check_Image_loaded_COM}
      Wait Until Element Is Visible    ${manageMyModelBtn}    60s
      Reload Page
@@ -531,9 +629,21 @@ Verify Publishing already Published Company Model Into Public Marketplace
      Run Keyword If      "${status_ImageUploadedPub}" == "PASS"    Wait Until Element Is Visible    ${UploadImage_Completed_Public}    15s
      Wait Until Element Is Enabled    ${submitToPublicationBtn_Public}         10s    
      Click Element    ${submitToPublicationBtn_Public}
+     #added
      Wait Until Element Is Visible    ${WithdrawRequestBtn_Public}    20s
      Click Element    ${PublishRequestIcon}
-     sleep    5s       
+     Wait Until Keyword Succeeds  60   10    Wait Until Element Is Not Visible    ${overlay}    10s
+     # Execute JavaScript    window.scrollTo(0,400)
+     # Wait Until Element Is Visible    ${showing_PublishReq_Drp}    10s
+     # Execute JavaScript    window.scrollTo(0,400)
+     # Click Element    ${showing_PublishReq_Drp}
+     # Wait Until Element Is Visible    ${show_100_PublishReq}    5s
+     sleep    5s
+     # Execute JavaScript    window.scrollTo(0,400)
+     # Click Element    ${showing_PublishReq_Drp}
+     # Wait Until Element Is Visible    ${show_100_PublishReq}    5s
+     # Click Element    ${show_100_PublishReq}
+     # Wait Until Keyword Succeeds  60   10    Wait Until Element Is Not Visible    ${overlay}    10s         
      Wait Until Element Is Visible    ${search_PublishRequest}    10s
      Input Text    ${search_PublishRequest}    ${SearchModelName_Public}
      Wait Until Keyword Succeeds  60   10    Wait Until Element Contains    ${searchedModelNameForApproval}    ${SearchModelName_Public}    20s
@@ -541,46 +651,50 @@ Verify Publishing already Published Company Model Into Public Marketplace
      Wait Until Element Is Visible    ${approveBtn}    10s
      Click Element    ${approveBtn}
      Wait Until Element Is Visible    ${requestorStatus}  
-     Element Should Contain    ${requestorStatus}    Approved  
-     
+     Element Should Contain    ${requestorStatus}    Approved 
+     #Wait Until Element Is Visible    ${publishToPublicMarketplaceCompleted}        10s    #removed     
+     #Element Should Be Visible    ${publishToPublicMarketplaceCompleted}        #removed    
+         
+    
 Verify dashboard options in Site Admin    #Verify the dashboard options in the site admin tab 
     Wait Until Element Is Visible    ${siteAdminIcon}    10s
     Click Element    ${siteAdminIcon}
-    Wait Until Element Is Visible    ${monitoring_tab}    15s
+    Wait Until Element Is Visible    ${monitoring_tab}    20s
     Element Should Be Visible   ${monitoring_tab}   
-    Wait Until Element Is Visible    ${user_Management_Tab}    15s
+    Wait Until Element Is Visible    ${user_Management_Tab}    20s
     Element Should Be Visible    ${user_Management_Tab}    
-    Wait Until Element Is Visible    ${site_Configuration_Tab}    15s
+    Wait Until Element Is Visible    ${site_Configuration_Tab}    20s
     Element Should Be Visible    ${site_Configuration_Tab}    
-    Wait Until Element Is Visible    ${federation_Tab}    15s
+    Wait Until Element Is Visible    ${federation_Tab}    20s
     Element Should Be Visible    ${federation_Tab}    
-    Wait Until Element Is Visible    ${requests}    15s
+    Wait Until Element Is Visible    ${requests}    20s
     Element Should Be Visible    ${requests}    
-    Wait Until Element Is Visible    ${configure_workflows}    15s
-    Element Should Be Visible    ${configure_workflows} 
-    
+    Wait Until Element Is Visible    ${configure_workflows}    20s
+    Element Should Be Visible    ${configure_workflows}    
+
 Verify Model Details page Tabs    #To verify Model details page tabs
-    Wait Until Element Is Visible    ${myModelIcon}    10s
-    Click Element    ${myModelIcon} 
-    Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-    Wait Until Element Is Visible    ${check_Image_loaded}     60S    
-    Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
-    Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}    ${SearchModelName_MyModel}
-    Click Element    ${check_Image_loaded}
+	Wait Until Element Is Visible    ${myModelIcon}    10s
+	Click Element    ${myModelIcon} 
+	Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+	Click Element    ${searchModelTxtbox}
+	#Wait Until Element Is Visible    ${check_Image_loaded}     60s    
+	Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
+	Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}     ${SearchModelName_MyModel}
+	Click Element    ${check_Image_loaded}
     Wait Until Element Is Visible    ${descriptionTab}    25s
     Element Should Be Visible   ${descriptionTab}   
     Wait Until Element Is Visible    ${signaturesTab}    15s
     Element Should Be Visible    ${signaturesTab}    
     Wait Until Element Is Visible    ${documentsTab}    15s
     Element Should Be Visible    ${documentsTab}    
-    Wait Until Element Is Visible    ${modelArtifactTab}   15s
-    Element Should Be Visible    ${modelArtifactTab}
-    
+    Wait Until Element Is Visible    ${modelArtifactTab}    15s    
+    Element Should Be Visible    ${modelArtifactTab}   
+
 Verify Solution ID is displaying on Model Details page     #To verify Solution ID is displaying on Model details page 
 	Wait Until Element Is Visible    ${myModelIcon}    10s
 	Click Element    ${myModelIcon} 
-	Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-	Wait Until Element Is Visible    ${check_Image_loaded}     60S    
+	Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+	Wait Until Element Is Visible    ${check_Image_loaded}     60s    
 	Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
 	Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}     ${SearchModelName_MyModel}
 	Click Element    ${check_Image_loaded}
@@ -590,8 +704,8 @@ Verify Solution ID is displaying on Model Details page     #To verify Solution I
 Verify Solution ID is displaying on Manage My Model Page    #To verify Solution ID is displaying on Manage My Model page
     Wait Until Element Is Visible    ${myModelIcon}    10s
 	Click Element    ${myModelIcon} 
-	Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-	Wait Until Element Is Visible    ${check_Image_loaded}     60S    
+	Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+	Wait Until Element Is Visible    ${check_Image_loaded}     60s    
 	Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
 	Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}     ${SearchModelName_MyModel}
 	Click Element    ${check_Image_loaded}
@@ -599,20 +713,21 @@ Verify Solution ID is displaying on Manage My Model Page    #To verify Solution 
     Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
     Click Element       ${manageMyModelBtn}
     Wait Until Element Is Visible    ${solutionID_MyModels}    40s
-    Element Should Be Visible    ${solutionID_MyModels}       
-    
+    Element Should Be Visible    ${solutionID_MyModels}    
+        
+
 Verify Manage My Model Management Options
     Wait Until Element Is Visible    ${myModelIcon}    10s
     Click Element    ${myModelIcon}
-    Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-    Wait Until Element Is Visible    ${check_Image_loaded}     60S    
+    Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+    Wait Until Element Is Visible    ${check_Image_loaded}     60s    
     Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}    ${SearchModelName_MyModel}
     Click Element    ${check_Image_loaded}
     Wait Until Element Is Visible    ${manageMyModelBtn}    60s
     Wait Until Element Is Enabled    ${manageMyModelBtn}    30s
     Click Element       ${manageMyModelBtn}
-    Wait Until Element Is Visible    ${onboradingTab_ManageMyModel}    60s
+    Wait Until Element Is Visible    ${onboradingTab_ManageMyModel}    60s    
     Element Should Be Visible   ${onboradingTab_ManageMyModel}
     Wait Until Element Is Visible    ${shareWithTeamTab}    15s
     Element Should Be Visible   ${shareWithTeamTab}
@@ -626,18 +741,18 @@ Verify Manage My Model Management Options
     Element Should Be Visible   ${viewDownloadsTab}
     Wait Until Element Is Visible    ${replyToCommentsTab}    15s
     Element Should Be Visible   ${replyToCommentsTab}
-    
+
 Verify the Status of Unpublished solution in Model details page
     Wait Until Element Is Visible    ${myModelIcon}    10s
     Click Element    ${myModelIcon} 
-    Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-    Wait Until Element Is Visible    ${check_Image_loaded}     60S    
+    Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+    Wait Until Element Is Visible    ${check_Image_loaded}     60s    
     Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}     ${SearchModelName_MyModel}
     Click Element    ${check_Image_loaded}
     Wait Until Element Is Visible    ${status_Unpublished}    15s
-    Element Should Be Visible    ${status_Unpublished}
-    
+    Element Should Be Visible    ${status_Unpublished}        
+
 Verify the Status of Deleted solution in Model details page
     Wait Until Element Is Visible    ${myModelIcon}    10s
     Click Element    ${myModelIcon} 
@@ -655,6 +770,7 @@ Verify that Manage My Model Button for Deleted solution is disabled
     Click Element    ${Check_Image_Loaded_Deleted}
     Wait Until Element Is Visible    ${manageMyModel_Btn_ForDeletedModel}    20s
     
+                                                         
 Verify Navigation to Account Settings Page
     Wait Until Element Is Visible    ${homeIcon}    10s    
     Click Link        ${homeIcon}
@@ -662,14 +778,15 @@ Verify Navigation to Account Settings Page
     Click Element    ${accountInfo_Dropdown}
     Wait Until Element Is Visible    ${accountSetting_link}    10s
     Click Link    ${accountSetting_link}
-    Wait Until Element Is Visible    ${accountSetting_PageTitle}    40s
-    Element Should Be Visible    ${accountSetting_PageTitle}                    
+    Wait Until Element Is Visible    ${accountSetting_PageTitle}    40s   
+    Element Should Be Visible    ${accountSetting_PageTitle}           
 
+     
 Verify Adding Author Tab Is Present In Manage My Models Page
     Wait Until Element Is Visible    ${myModelIcon}    10s
     Click Element    ${myModelIcon} 
-    Wait Until Element Is Visible    ${searchModelTxtbox}   60S
-    Wait Until Element Is Visible    ${check_Image_loaded}     60S    
+    Wait Until Element Is Visible    ${searchModelTxtbox}   60s
+    Wait Until Element Is Visible    ${check_Image_loaded}     60s    
     Input Text    ${searchModelTxtbox}    ${SearchModelName_MyModel}
     Wait Until Keyword Succeeds  60   5  Element Text Should Be     ${imageToVerify}     ${SearchModelName_MyModel}
     Click Element    ${check_Image_loaded}
@@ -686,7 +803,7 @@ Verify Adding New Author In Manage My Models Page
     Input Text    ${authorContactInfo}    Test
     Wait Until Element Is Enabled    ${addAuthorBtn}    15s
     Click Element    ${addAuthorBtn}
-    Wait Until Element Is Visible    ${authorCreated}    15s           
+    Wait Until Element Is Visible    ${authorCreated}    15s            
     
 Verify adding new user in User Management and User Activation
     Wait Until Element Is Visible    ${homeIcon}    10s    
@@ -767,7 +884,7 @@ Verify Logout    #Verify logout functionality
      Wait Until Keyword Succeeds     60     5    Element Should Be Visible    ${signInLink}    30s    #CHANGED
          
 Verify Add User By Login With Newly Added User
-    Open Browser    ${URL}   ${BROWSER}       
+    Open Browser    ${URL}   ${BROWSER}       ff_profile_dir=${FF_PROFILE}
     sleep  3s
     ${addedUser}=     Get Variable Value           ${addUser_Data}
     Set Suite Variable    ${addedUser}         #added       
@@ -817,7 +934,7 @@ Verify Change Password On Account Setting Page
     
 
 To Verify SignUp Functionality
-    Open Browser    ${URL}   ${BROWSER}       
+    Open Browser    ${URL}   ${BROWSER}       ff_profile_dir=${FF_PROFILE}
     sleep  3s
     ${signUp_Data} =   Get Current Date    result_format=%d_%m_%Y_%H_%M_%S
     Set Suite Variable    ${signUp_Data}
@@ -879,7 +996,7 @@ To Verify SignUp Functionality
     Element Should Be Visible    ${loginAccountInfo}  
 
 Verify Login With Invalid Username and Password
-    Open Browser    ${URL}   ${BROWSER}       
+    Open Browser    ${URL}   ${BROWSER}       ff_profile_dir=${FF_PROFILE}
     Wait Until Element Is Visible    ${signInLink}     15s
     Click Element        ${signInLink}
     Wait Until Element Is Visible    ${loginEmailAddressEntry}   25s   
@@ -891,7 +1008,7 @@ Verify Login With Invalid Username and Password
     Close Browser                           
 
 Verify SignUp for Invalid Inputs for Username and Email
-    Open Browser    ${URL}   ${BROWSER}       
+    Open Browser    ${URL}   ${BROWSER}       ff_profile_dir=${FF_PROFILE}
     sleep  3s
     Wait Until Element Is Visible    ${signUpLink}    20s    
     Click Element    ${signUpLink}
@@ -908,9 +1025,10 @@ Verify SignUp for Invalid Inputs for Username and Email
     Wait Until Element Is Visible    ${usernameError}    15s    
     Wait Until Element Is Visible    ${emailError}    15s
     Close Browser        
-                    
-
-     
+                       
  Tear Down   #Close all browsers
   [Documentation]   Close all browsers
    Close All Browsers
+   
+    
+
