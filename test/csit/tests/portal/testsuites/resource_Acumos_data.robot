@@ -1,30 +1,27 @@
-# ===============LICENSE_START=======================================================
-# Acumos Apache-2.0
-# ===================================================================================
-# Copyright (C) 2017-2018 AT&T Intellectual Property & Tech Mahindra. All rights reserved.
-# ===================================================================================
-# This Acumos software file is distributed by AT&T and Tech Mahindra
-# under the Apache License, Version 2.0 (the "License");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-# http://www.apache.org/licenses/LICENSE-2.0
-#
-# This file is distributed on an "AS IS" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License.
-# ===============LICENSE_END=========================================================
 *** variables ***
 #Acumos Configurations
-${BROWSER}                 Firefox
-${URL}    
+${BROWSER}                    firefox  
+${URL}                        http://cognita-ist-vm01-core.eastus.cloudapp.azure.com/index.html#/home    #http://cognita-ist-vm01-core.eastus.cloudapp.azure.com/#/home         #https://acumosk8s.eastus.cloudapp.azure.com/#/home                    #http://35.197.68.172:8085/      #http://demo.guru99.com/test/upload/
+${FF_PROFILE}                 D:/SR00125918/TECHM/Firefox Profile/
 
-#Acumos Data#
-${username}                  
-${password}                  
-${SearchModelName_Public}   Pub_0806_Model    #Should be unpublished
-${SearchModelName_Company}  Company_0806_Model    #Should be unpublished
-${DeleteModelName}          Delete_0806_Model    #Should be unpublished    
-${SearchModelName_MyModel}  Gen_0806_Model    #Should be unpublished
-${Published_DeleteModelName}    ${SearchModelName_Company}        #using model which publihsed in company using Published To Company Marketplace scenario  
+#Acumos Data
+${username}                   sumit           
+${password}                   Sumit@1234    
+# ${SearchModelName_Public}      CrossSell_17122  
+${SearchModelName_Public}      PUB_0901a_IST   #Should be unpublished
+${SearchModelName_Company}     COM_0901_IST    #Should be unpublished
+${DeleteModelName}             DEL_0901_IST   #Should be unpublished    
+${SearchModelName_MyModel}     GEN_0901_IST    #GEN_07132018_WEM    #Should be unpublished
+# ${SearchModelName_ErrorModel}  ERR_03012019_WEM
+${Published_DeleteModelName}    ${SearchModelName_Company}        #using model which publihsed in company using Published To Company Marketplace scenario     
+
+
+
+
+
+
+
+
+
+
+
