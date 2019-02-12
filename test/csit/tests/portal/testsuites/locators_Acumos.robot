@@ -12,11 +12,16 @@ ${loginPassword}        //input[@name='userPass']
 ${signInButton}         //button[@ng-click='signin()']
 ${loginAccountInfo}    //*[@id='account-info']
 ${myModelIcon}        //a[@title='My Models']
+${OnboardingModelIcon}     (//span[contains(.,'ON-BOARDING MODEL')])[1]  
+${OnboardingModelTitle}    //span[@class='headline mob-disblock'][contains(.,'On-Boarding Model')]
+
 ${signOut}           //a[@ng-click='logout()']/span[@class='icon-logout']        
 ${acumos_logo_without_login}     //header-nav[@class='mdl-layout__header is-casting-shadow']//span[@class='accumos-header-logo']/img[@title='Acumos']     
 ${homeIcon}            //nav[@class='mdl-navigation cg-sidebar Acu-desktop-sidebar']//a[@ui-sref='home']    
 ${designStudioIcon}   //a[@title='Design Studio']
-${designStudioTitle}  //span[@class='headline mob-disblock' and contains(text(),'Design Studio')]           
+${designStudioTitle}  //span[@class='headline mob-disblock' and contains(text(),'Design Studio')] 
+${modelComposer}  //span[contains(.,'Model Composer')] 
+${acuCompose}  //span[contains(.,'Acu-compose')]         
 ${marketPlaceIcon}     //a[@title='Marketplace']
 ${myModelPageTitle}    //section[@class='pageheadsection mob-pageheadsection1']/div/div/span    
 ${siteAdminIcon}       //a[@title='Site Admin']
@@ -37,12 +42,37 @@ ${Created_Date_AscDesc}           //span[@ng-if='orderByField!="creationDate"']
 ${Status_AscDesc}                //span[contains(@ng-if,'orderByField!="revisionStatusName"')]
 ${Request_Status_AscDesc}        //span[contains(@ng-if,'orderByField!="requestStatusName"')]
 ${Comments_AscDesc}                    //span[contains(@ng-if,'orderByField!="modified"')]
+${View_Link}  (//a[@ng-click='setActiveComment(publishReq.publishRequestId)'][contains(.,'View')])[1]
+${PublisherComments_Popup}  //div[@class='custom_popover']//h2[contains(text(),"Publisher's Comments")]
+${Approved_Text}  //div[@class='custom_popover']//p[contains(text(),'Approved')]
+${Hide_Link}  //a[contains(text(),'Hide')]
 
+${deleteApiToken}    //a[@ng-click='deleteApiToken()'][contains(.,'Delete Token')]
+${API_tokenTextarea}  //input[contains(@ng-model,'user.apiToken')]
+${Refresh_Token}  //a[@ng-click='refreshApiToken()'][contains(.,'Refresh')]
+
+${notification_link}     //button[@class='mdl-button header-ddl mdl-js-button cg-acitve md-button md-ink-ripple'][contains(.,'notifications_none')]
+${readAllMessages}  //button[contains(@ng-click,'showNotification()')]
+${manage_notifications_title}  //span[contains(.,'Manage Notifications')]
+${selectAll_checkbox}  //input[contains(@ng-model,'selectAll')]
+${subject_link}    //th[@role='button'][contains(.,'Subject')]
+
+
+# Error Model
+${Delete_icon}    //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div/div[3]/div[2]/i
+${Error_DetailsPopup}    //div[@id='errorModelPopup']/md-dialog/md-toolbar/div/h2
+${closePoup_OK}    //div[@id='errorModelPopup']/md-dialog/md-dialog-actions/div/div/button
+${Delete_ModelPopup}    //div[@id='confirmPopupDeleteModel']/md-dialog/md-toolbar/div/h2
+${Delete_ModelConfirmButton}   //div[@id='confirmPopupDeleteModel']/md-dialog/md-dialog-actions/div/button[2] 
+${Error_Foundlink}    (//div[contains(@class,'grid-error-msg')])[2]   
+
+${image_Published_Error}   //div[2]/div/label/span[@class='griditem-title-text2']    
 ${DeleteBtn}   //div/div[@class='popupdeleteicon']/i[@ng-click='openDeleteConfirmPopup(privateSolution)']
 ${check_Err_Image_loaded}   (//img[contains(@ng-click,'onClickModel(privateSolution.solutionId, privateSolution.ownerId, privateSolution.latestRevisionId)')])[2]
 ${imageToVerify_Err}    //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div[4]/div[1]/div[2]/div/label/span
-
-${Rate_Section}   //div/div[7]/div/div[@class='mdl-cell mdl-cell--7-col mdl-cell--4-col-tablet mdl-cell--4-col-phone']/h6[@class='sectiontitle9 rate-title']
+# ${check_Image_loaded_PUB}  //div/div[2]/div/div[3]/div[@class='grid-container']//div[@class='grid-top-section']/div/figure/img[1]
+${Rate_Section}   //h6[contains(@class,'sectiontitle9 rate-title')]
+${imageToVerify_PUB}  //div/div/div/div[@class='mpdetailscontainer']/label[@class='griditem-title']
 
 ${ModelDescriptionBtn_Public}    //div[contains(@ng-show,'public')]//h2/a[contains(text(),'Description')]
 ${ModelDescription_text_Public}     //div[contains(@ng-show,'public')]//div[@data-placeholder='Insert text here ...']
@@ -65,7 +95,10 @@ ${TagPresent_Public}    //*[@id='public-market']//ul[@class='tag-list']/li[1]
 ${UploadImageForModelBtn_Public}     //div[contains(@ng-show,'public')]//h2/a[contains(text(),'Upload')]
 ${UploadIcon_Go_Png_Public}    //div[@id='public-market']//div[@class='iconcontainer']/img[@ng-src='images/solutions/go.png']
 ${UploadIcon_Done_Public}    //*[@id='public-market']//button[contains(@ng-click,'updateSolImage')]/span[contains(text(),'Done')] 
-${UploadImage_Completed_Public}    //div[@id='public-market']//span[@ng-show='showSolutionImage' and contains(text(),'Completed')]               
+${UploadImage_Completed_Public}    //div[@id='public-market']//span[@ng-show='showSolutionImage' and contains(text(),'Completed')]  
+
+${Approverequest_popup}    //h2[contains(@ng-show,"requestApprovalModal == 'approve'")]
+${Approverequest_Text}    //textarea[contains(@ng-model,'descriptionPop')]             
 #//body/div[10]//md-option[@ng-repeat='category in allCategory' and @value='DT']/div[2]
 #//md-option[@ng-repeat='category in allCategory' and @value='DT']/div[2] 
 #//div[text()='Classification']//ancestor::div[contains(@class,'md-active md-clickable')]//div[text()='Prediction']
@@ -74,17 +107,22 @@ ${publishToPublicMarketplaceCompleted}    //a[@title='Publish to Public Marketpl
 ${marketPlacePageTitle}    //span[@class='headline mob-disblock' and contains(text(),'Marketplace')]    
 ${onBoardingByWebPageTitle}     //span[@class='headline mob-disblock' and contains(text(),'On-Boarding Model')]    
 ${searchModelTxtbox}   //input[contains(@ng-model,'searchBox')]  # //input[contains(@id,'module-search')]  #//*[@id='module-search']    # .//*[@id='Authors']/div[2]/ng-form/div[2]/button[contains(@alt,'Add author')]    # //div/div/div[2]/div[1]/input[@id='module-search']
-${filter_prediction}   //div[@id='md-manage-module-template']/div/div[1]/div[2]/div[2]/div[1]/md-checkbox/div[1]
-${filter_classification}    //div[@id='md-manage-module-template']/div/div[1]/div[2]/div[2]/div[2]/md-checkbox/div[1]
-${filter_regression}     //div[@id='md-manage-module-template']/div/div[1]/div[2]/div[2]/div[3]/md-checkbox/div[1]  
-${filter_dataTransformer}    //div[@id='md-manage-module-template']/div/div[1]/div[2]/div[2]/div[4]/md-checkbox/div[1]
+${filter_prediction}   //md-checkbox[@value='{"code":"PR","name":"Prediction"}']//div[@class='md-container md-ink-ripple']
+${filter_classification}    //md-checkbox[@value='{"code":"CL","name":"Classification"}']//div[@class='md-container md-ink-ripple']
+${filter_regression}     //md-checkbox[@value='{"code":"RG","name":"Regression"}']//div[@class='md-container md-ink-ripple']  
+${filter_dataTransformer}    //md-checkbox[@value='{"code":"DT","name":"Data Transformer"}']//div[@class='md-container md-ink-ripple']
 ${check_Image_loaded}       //div/div[@class='grid-outer-wrapper']/div/div/div/div/div[@class='product-image']/figure/img[2]  # (//img[contains(@class,'img-rounded')])[1]   #//div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img[@class='img-rounded']     
+${check_Image_loaded_DEL}  (//img[contains(@ng-hide,'deletedSolution.picture')])[1]
+${check_Image_loaded_COM}  (//img[contains(@ng-show,'companySolution.picture')])[1]
+${check_Image_loaded_PUB}   //div[@ng-if='hidePublic']/div[1]/div[1]/div[1]/div[@class='grid-top-section']/div/figure[1]/img[@class='img-rounded']
+# ${check_Image_loaded_PUBa}   //div/div/div/div[@class='grid-item']//div[@class='product-image']/figure/img[1]
 # ${check_Image_pub_loaded}    //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/figure/img[2]  #//div/manage-module/div/div/div[2]/div/div[3]/div[3]/div/div[1]/div/div[1]/div[@class='product-image']/figure/img[1]
-${imageToPublish_Company}  //div[@id='md-manage-module-template']/div/div[2]/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div/label/span  #//div[@class='grid-outer-wrapper']/div[@class='grid-container' And @ng-if='hideCompany']/div[@ng-show='Viewtile']/div/div/div[@class='mpdetailscontainer']/div/label/span[1]           
+${imageToPublish_Company}    //div[@id='md-manage-module-template']/div/div[2]/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div/label/span  #//div[@class='grid-outer-wrapper']/div[@class='grid-container' And @ng-if='hideCompany']/div[@ng-show='Viewtile']/div/div/div[@class='mpdetailscontainer']/div/label/span[1]           
 ${imageToPublish_Public}     //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div/label/span
 # ${publishingImage_Pub}    //div[@id='md-manage-module-template']/div/div[2]/div/div[3]/div[1]/div[1]/div/div[1]/div[1]/figure/img[2]    #//div/div[@class='mp-grid']/div/div/div[@ class='product-image']/figure/img[@ng-src='images/default-model.png']  #//div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img[@class='img-rounded']   //div[@class='grid-outer-wrapper']/div[@class='grid-container' And @ng-if='hidePrivate']/div[1]/div/div[1]/div[2]/div[@class='tilecontainer1']/label/span     //div/div[@class='mp-grid']/div/div/div[@ class='product-image']/figure/img[@ng-src='images/default-model.png']       
 ${imageToDelete}    //div[@class='grid-outer-wrapper']/div[1]/div[@ng-show='Viewtile']/div[1]//div[@class='mpdetailscontainer']/div[@class='tilecontainer1']/label/span
-${imageToVerify}    //div[@class='grid-outer-wrapper']/div[1]/div[@ng-show='Viewtile']/div[1]//div[@class='mpdetailscontainer']/div[@class='tilecontainer1']/label/span           
+${imageToVerify}    //div[@class='grid-outer-wrapper']/div[1]/div[@ng-show='Viewtile']/div[1]//div[@class='mpdetailscontainer']/div[@class='tilecontainer1']/label/span 
+${imageToVerify_P}    (//label[contains(@class,'griditem-title')])[1]          
 ${manageMyModelBtn}          //button[contains(@href,'modelEdit')]    
 ${publishToPublicMarketplaceTab}    //*[@id='manage-models']/div/div/section/div/div/div[2]/div/ul/li[5]/a[@title='Publish to Public Marketplace']     # //a[contains(@ng-click,'Publish to Public Marketplace')]
 ${SolutionPublishedSuccessfulMsg}   //span[contains(text(),'Solution Published Successfully')
@@ -92,7 +130,7 @@ ${SolutionPublishedSuccessfulMsg}   //span[contains(text(),'Solution Published S
 ${publishToCompanyMarketplaceTab}    //a[contains(@ng-click,'Publish to Company Marketplace')]    
 ${ModelDescriptionBtn_Company}    //div[contains(@ng-show,'company')]//h2/a[contains(text(),'Description')]    
 ${ModelDescription_text_Company}    //div[contains(@ng-show,'company')]//div[@data-placeholder='Insert text here ...']
-${ModelDescription_DoneBtn_Company}    //*[@id='company-market']//button[contains(@ng-click,'updateCompanyDescription')]
+${ModelDescription_DoneBtn_Company}      //*[@id='company-market']//button[contains(@ng-click,'updateCompanyDescription')]
 ${ModelDescription_Completed_Company}    //span[@ng-if='solutionCompanyDescStatus || copiedCompanyDesc' and contains(text(),'Completed')]              
 ${ModelCategoryBtn_Company}      //*[@id='company-market']//h2/a[contains(text(),'Model Category')]
 ${SelectCategoryDrpdwn_Company}   //*[@id='company-market']//div[@ng-show='showSolCat']//md-select[@ng-model='categoryname']
@@ -117,8 +155,10 @@ ${submitToPublicationBtn_Company}           //button[contains(text(),'Submit to 
 ${publishToCompanyMarketplaceCompleted}    //a[@title='Publish to Company Marketplace']//div/ul[@class='green']/li[contains(text(),'Completed')]
 #Delete Model 
 ${DeleteModelTab}        //a[contains(@title,'Delete Model')]
-${DeleteButton_MyModels}    //*[@id='manage-models']//button[@title='Delete']
-${DeletedModel_InMyModels}  //div[@ng-if='hideDelete']/div/div/div[@ng-show='Viewtile']/div[1]//div[@class='tilecontainer1']/label/span  
+${DeleteButton_MyModels}     //*[@id='manage-models']//button[@title='Delete']
+${DeleteButton_Confirm_Popup}  //h2[contains(text(),'Delete Model')] 
+${DeleteButton_Confirm}   //button[contains(@ng-click,'deleteSolutions()')]  
+${DeletedModel_InMyModels}  //span[contains(@class,'griditem-title-text2')] 
 #Site Admin Dashboard
 ${monitoring_tab}    //a[@ng-click='menuName = "Monitoring"']
 ${user_Management_Tab}  //a[@ng-click='menuName = "User Management"']   # html/body/div[3]/div/main/div/admin/div/div[1]/div/div/div[1]/div/a[@ng-click='menuName = "User Management"']    
@@ -134,6 +174,15 @@ ${modelArtifactTab}        //a[@title='Model Artifacts']
 #Manage My Model Management Options
 ${onboradingTab_ManageMyModel}     //a[contains(@ng-click,'On-Boarding')]
 ${shareWithTeamTab}    //a[contains(@title,'Share with Team')]
+${shareWithTeam_title}  //span[contains(text(),'Share With Team')]
+${findauser_tosharewith}  //md-input-container[contains(.,'Find a user to Share with')]
+${Demo_name}  //span[contains(.,'Acumos Admin')]
+${findauser_tosharewith_tab}  //input[contains(@placeholder,'Find a user to share with')]
+${Share_Button}  //button[@ng-click='shareWithMultiple();'][contains(.,'Share')]
+${Demo_image}  (//img[@alt='Acumos Admin'])[4]
+${sharedModelName}  (//div[contains(.,'Acumos Admin')])[19]
+${SharedWithOthers_Icon}  (//span[contains(@title,'Shared With Others')])[1]
+
 ${Export_DeployToCloud}    //a[contains(@ng-click,'Export/Deploy to Cloud')]
 ${viewDownloadsTab}    //a[contains(@ng-click,'View Downloads')]
 ${replyToCommentsTab}    //a[contains(@ng-click,'Reply to Comments')]
@@ -167,8 +216,12 @@ ${userName_AddUser}        //*[@ng-model='value.username']
 ${email_AddUser}        //*[@id='emailValue']
 ${password_AddUser}        //*[@id='password']
 ${confirmPass_AddUser}        //*[@ng-model='value.cpassword']
-${role_AddUser_DrpDwn}        //*[@ng-model='roleValue']
-${select_MLP_SystemUser}        //div[text()='MLP System User']//ancestor::div[contains(@class,"md-active")]//following-sibling::div[text()='MLP System User']/preceding-sibling::div[@class='md-container']//div[@class='md-icon']
+${role_AddUser_DrpDwn}      //md-select[contains(@ng-model,'roleValue')]  #//*[@ng-model='roleValue']  #//md-select-value[@id='select_value_label_143']//span[@class='md-select-icon']  #//*[@ng-model='roleValue']
+# ${select_Admin}   //*[@id="select_option_106"]
+${DntSndPw}  //div[@class='admin-row admin-row1']//div//div[@class='md-container md-ink-ripple']
+# ${CloseAddNewUser_Popup}  (//button[contains(@ng-click,'closePoup()')])[31]
+# ${Cancel_Popup}  (//button[@ng-click='closePoup()'][contains(.,'Cancel')])[12]
+${select_MLP_SystemUser}    (//md-option[contains(@ng-repeat,'role in allRoles')])[4]  #//div[text()='MLP System User']//ancestor::div[contains(@class,"md-active")]//following-sibling::div[text()='MLP System User']/preceding-sibling::div[@class='md-container']//div[@class='md-icon']
 ${addBtn_AddUser}        //md-dialog[@role='dialog']//button[contains(text(),'Add')]    
 ${searchUser_UserManagement}    //*[contains(concat(' ', @class, ' '), 'user-mgmt-search-container')]//input[@ng-model='search']
 ${registeredAddUser_uname}    //tbody[@ng-repeat='val in (filtertedUser = (userDetails | orderBy:orderByField:reverseSort | filter : searchData) )'][1]//td[2]    #changed
@@ -231,12 +284,19 @@ ${show_100_PublishReq}        //div[@class='select-control']//option[@ng-value='
 #Manage Themes and interests popup
 ${manageThemes_link}    //a[@role='menuitem' and contains(text(),'Manage Themes')]      
 ${interests_popup}        //*[@id='myDialogTags']//h2[contains(text(),'What are your interests?')]
-${selectTag}           (//div[contains(@class,'md-container md-ink-ripple')])[1]  #//div[@class='md-dialog-content']//div[@class='theme-tile-wrapper']/div[@class='theme-tile'][1]/div[@class='theme-check-container']/md-checkbox[1]/div/div[@class='md-icon']  #//*[@id='menu_container_4']/md-menu-content/md-menu-item[3]/a[contains(text(),'Manage Themes')] 
-${tagSelectedTrue}        //div[@class='md-dialog-content']//div[@class='theme-tile-wrapper']/div[@class='theme-tile'][1]/div[@class='theme-check-container']/md-checkbox[@aria-checked='true']        
+${selectTag}           //div[@class='theme-tile-wrapper']/div[2]/div[1]/md-checkbox[1]/div[1]  #(//div[contains(@class,'md-container md-ink-ripple')])[8]  #//div[@class='md-dialog-content']//div[@class='theme-tile-wrapper']/div[@class='theme-tile'][1]/div[@class='theme-check-container']/md-checkbox[1]/div/div[@class='md-icon']   #//div[@class='md-dialog-content']//div[@class='theme-tile-wrapper']/div[@class='theme-tile'][1]/div[@class='theme-check-container']/md-checkbox[1]/div/div[@class='md-icon']  #//*[@id='menu_container_4']/md-menu-content/md-menu-item[3]/a[contains(text(),'Manage Themes')] 
+${tagSelectedTrue}        //div[@class='theme-progress-container2']/div[@class='theme-tile-wrapper']/div[2]/div[1]/md-checkbox[1]/div[1]  #//div[@class='md-dialog-content']//div[@class='theme-tile-wrapper']/div[@class='theme-tile'][1]/div[@class='theme-check-container']/md-checkbox[@aria-checked='true']        
+# ${tagSelectedTrue_2}  (//div[contains(@class,'md-container md-ink-ripple')])[2]
 ${interestPopup_closeBtn}    //*[@id='myDialogTags']//button[@ng-disabled='disabledFlag']/i[@class='material-icons' and contains(text(),'close')]
 ${continueBtn_InterestsPopup}    //*[@id='myDialogTags']/md-dialog/form/md-dialog-actions/div/div[2]/button[@title='Continue']     # //button[@title='Continue']
 ${BackBtn_InterestsPopup}        //button[@ng-click='back()']
 #Description in Published to public marketplace Model
 ${PublishedDescription_PB}     //div[@ng-show='showPBDescription']/p
 #Description in Published to Company marketplace Model
-${PublishedDescription_OR}    //div[@ng-show='showORDescription']/p                  
+${PublishedDescription_OR}    //div[@ng-show='showORDescription']/p[1]
+
+
+
+
+
+
