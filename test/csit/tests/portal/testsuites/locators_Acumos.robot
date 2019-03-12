@@ -15,6 +15,16 @@ ${myModelIcon}        //a[@title='My Models']
 ${OnboardingModelIcon}     (//span[contains(.,'ON-BOARDING MODEL')])[1]  
 ${OnboardingModelTitle}    //span[@class='headline mob-disblock'][contains(.,'On-Boarding Model')]
 
+
+${Page_1_Btn}  //button[@class='mdl-button mdl-js-button btn-secondary count-btn selected-btn'][contains(.,'1')]
+${Page_2_Btn}  //button[@class='mdl-button mdl-js-button btn-secondary count-btn selected-btn'][contains(.,'2')]
+${Page_3_Btn}  //button[@class='mdl-button mdl-js-button btn-secondary count-btn'][contains(.,'3')]
+${Page_4_Btn}  //button[@class='mdl-button mdl-js-button btn-secondary count-btn'][contains(.,'4')]
+${Page_5_Btn}  //button[@class='mdl-button mdl-js-button btn-secondary count-btn'][contains(.,'5')]
+${ellipsisBtn}  (//button[@class='mdl-button mdl-js-button btn-secondary count-btn'][contains(.,'...')])[2]
+${nextBtn}  //button[@class='mdl-button mdl-js-button btn-secondary'][contains(.,'Next')]
+${PreviousBtn}  //button[@class='mdl-button mdl-js-button btn-secondary'][contains(.,'Previous')]
+
 ${signOut}           //a[@ng-click='logout()']/span[@class='icon-logout']        
 ${acumos_logo_without_login}     //header-nav[@class='mdl-layout__header is-casting-shadow']//span[@class='accumos-header-logo']/img[@title='Acumos']     
 ${homeIcon}            //nav[@class='mdl-navigation cg-sidebar Acu-desktop-sidebar']//a[@ui-sref='home']    
@@ -109,13 +119,17 @@ ${onBoardingByWebPageTitle}     //span[@class='headline mob-disblock' and contai
 ${searchModelTxtbox}   //input[contains(@ng-model,'searchBox')]  # //input[contains(@id,'module-search')]  #//*[@id='module-search']    # .//*[@id='Authors']/div[2]/ng-form/div[2]/button[contains(@alt,'Add author')]    # //div/div/div[2]/div[1]/input[@id='module-search']
 ${filter_prediction}   //md-checkbox[@value='{"code":"PR","name":"Prediction"}']//div[@class='md-container md-ink-ripple']
 ${filter_classification}    //md-checkbox[@value='{"code":"CL","name":"Classification"}']//div[@class='md-container md-ink-ripple']
+${filter_DataSources}  //md-checkbox[@value='{"code":"DS","name":"Data Sources"}']//div[@class='md-container md-ink-ripple']
 ${filter_regression}     //md-checkbox[@value='{"code":"RG","name":"Regression"}']//div[@class='md-container md-ink-ripple']  
 ${filter_dataTransformer}    //md-checkbox[@value='{"code":"DT","name":"Data Transformer"}']//div[@class='md-container md-ink-ripple']
-${check_Image_loaded}       //div/div[@class='grid-outer-wrapper']/div/div/div/div/div[@class='product-image']/figure/img[2]  # (//img[contains(@class,'img-rounded')])[1]   #//div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img[@class='img-rounded']     
-${check_Image_loaded_DEL}  (//img[contains(@ng-hide,'deletedSolution.picture')])[1]
+${check_Image_loaded}      (//img[contains(@ng-click,'onClickModel(privateSolution.solutionId, privateSolution.ownerId, privateSolution.latestRevisionId)')])[1]  #//div/div[@class='grid-outer-wrapper']/div/div/div/div/div[@class='product-image']/figure/img[2]  # (//img[contains(@class,'img-rounded')])[1]   #//div[@class='grid-outer-wrapper']/div[1]/div[1]//div[1]/div[1]/div[1]/figure/img[@class='img-rounded']     
+${check_Image_loaded_DELa}  (//img[@ng-click='onClickModel(deletedSolution.solutionId, deletedSolution.ownerId,deletedSolution.latestRevisionId)'])[1]
 ${check_Image_loaded_COM}  (//img[contains(@ng-show,'companySolution.picture')])[1]
 ${check_Image_loaded_PUB}   //div[@ng-if='hidePublic']/div[1]/div[1]/div[1]/div[@class='grid-top-section']/div/figure[1]/img[@class='img-rounded']
-# ${check_Image_loaded_PUBa}   //div/div/div/div[@class='grid-item']//div[@class='product-image']/figure/img[1]
+${check_Image_loaded_PUBa}   (//img[contains(@ng-click,'onClickModel($index, mlsolution.solutionId, mlsolution.latestRevisionId)')])[1]
+${check_Image_loaded_COMa}  (//img[@ng-click='onClickModel(companySolution.solutionId, companySolution.ownerId,companySolution.latestRevisionId)'])[1]
+
+
 # ${check_Image_pub_loaded}    //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div[1]/figure/img[2]  #//div/manage-module/div/div/div[2]/div/div[3]/div[3]/div/div[1]/div/div[1]/div[@class='product-image']/figure/img[1]
 ${imageToPublish_Company}    //div[@id='md-manage-module-template']/div/div[2]/div/div[3]/div[1]/div[1]/div/div[1]/div[2]/div/label/span  #//div[@class='grid-outer-wrapper']/div[@class='grid-container' And @ng-if='hideCompany']/div[@ng-show='Viewtile']/div/div/div[@class='mpdetailscontainer']/div/label/span[1]           
 ${imageToPublish_Public}     //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div[1]/div[1]/div[2]/div/label/span
@@ -169,6 +183,7 @@ ${configure_workflows}    //a[@ng-click='menuName = "Validation"']
 #My Model :Model details tab
 ${descriptionTab}        //a[@title='Description']
 ${signaturesTab}         //a[@title='Signatures']
+${signaturesTitle}  //h6[@class='sectiontitle6'][contains(.,'SIGNATURE')]
 ${documentsTab}          //a[@title='Documents']
 ${modelArtifactTab}        //a[@title='Model Artifacts']              
 #Manage My Model Management Options
@@ -208,6 +223,7 @@ ${accountSetting_PageTitle}   //section[@class='pageheadsection']//span[contains
 ${status_Unpublished}    //span[contains(text(),'Status: Unpublished')] 
 #Overlay Page Loader 
 ${overlay}    //div[@class='a-overlay1']
+${Category_link}  //h6[@class='sectiontitle9'][contains(.,'CATEGORY')]
 #UserManagement_AddUser 
 ${add_NewUser_Btn}    //button[@ng-click='showPopup()']      
 ${fname_AddUser}        //*[@ng-model='value.fname']
@@ -217,7 +233,10 @@ ${email_AddUser}        //*[@id='emailValue']
 ${password_AddUser}        //*[@id='password']
 ${confirmPass_AddUser}        //*[@ng-model='value.cpassword']
 ${role_AddUser_DrpDwn}      //md-select[contains(@ng-model,'roleValue')]  #//*[@ng-model='roleValue']  #//md-select-value[@id='select_value_label_143']//span[@class='md-select-icon']  #//*[@ng-model='roleValue']
+${role_AddUser_DrpDwnA}  //md-backdrop[contains(@class,'md-select-backdrop md-click-catcher')]
+
 # ${select_Admin}   //*[@id="select_option_106"]
+${AddnewUser_Popup}  //h2[contains(text(),'Add New User')]
 ${DntSndPw}  //div[@class='admin-row admin-row1']//div//div[@class='md-container md-ink-ripple']
 # ${CloseAddNewUser_Popup}  (//button[contains(@ng-click,'closePoup()')])[31]
 # ${Cancel_Popup}  (//button[@ng-click='closePoup()'][contains(.,'Cancel')])[12]
