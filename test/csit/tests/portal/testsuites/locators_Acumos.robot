@@ -42,14 +42,14 @@ ${Model_Name}              //th[@role='button'][1]
 ${Version}                //th[@role='button'][2]
 ${Requester}             //th[@role='button'][3]
 ${Created_Date}                //th[@role='button'][4]
-${Status}                    //th[@role='button'][5]
+${Catalog}                    //th[@role='button'][5]
 ${Request_Status}            //th[@role='button'][6]
 ${Comments}                    //th[@role='button'][7]
 ${Model_Name_AscDesc}                //span[contains(@ng-if,'orderByField!="solutionName"')]
 ${Version_AscDesc}                    //span[contains(@ng-if,'orderByField!="revisionName"')]
 ${Requester_AscDesc}                    //span[contains(@ng-if,'orderByField!="requestorName"')]
 ${Created_Date_AscDesc}           //span[@ng-if='orderByField!="creationDate"']
-${Status_AscDesc}                //span[contains(@ng-if,'orderByField!="revisionStatusName"')]
+${Catalog_AscDesc}                
 ${Request_Status_AscDesc}        //span[contains(@ng-if,'orderByField!="requestStatusName"')]
 ${Comments_AscDesc}                    //span[contains(@ng-if,'orderByField!="modified"')]
 ${View_Link}  (//a[@ng-click='setActiveComment(publishReq.publishRequestId)'][contains(.,'View')])[1]
@@ -67,7 +67,16 @@ ${manage_notifications_title}  //span[contains(.,'Manage Notifications')]
 ${selectAll_checkbox}  //input[contains(@ng-model,'selectAll')]
 ${subject_link}    //th[@role='button'][contains(.,'Subject')]
 
-
+${subscription_col}    //th[contains(text(),'Subscriptions')]
+${subscription_col_num}    //div//div[@id='tab5-panel']//tbody//tr[1]//td[4]//label[1]
+${view/add_link}    (//a[contains(.,'View/Add')])[1]
+${view/add_link_popup}    //h2[contains(text(),'View/Add Subscriptions for dev1')]
+${subsciptions_id}   (//table[@class='mdl-data-table mdl-js-data-table mdl-shadow--2dp tbl-notification-list']/thead/tr/th[2])[1]
+${created_on}    //th[contains(text(),'Created on')]
+${updated_on}    //th[contains(text(),'Updated on')]
+${frequency_of_update}    //th[contains(text(),'Frequency of update')]
+${federation_Tab_title}    //span[@class='admin-title2'][contains(text(),'Federation')]
+${View/add_doneBtn}    //form[@class='ng-valid ng-dirty ng-valid-parse']//div//button[@class='mdl-button mdl-js-button btn-primary'][contains(text(),'Done')]
 # Error Model
 ${Delete_icon}    //div/manage-module/div/div/div[2]/div/div[3]/div[1]/div[1]/div/div[3]/div[2]/i
 ${Error_DetailsPopup}    //div[@id='errorModelPopup']/md-dialog/md-toolbar/div/h2
@@ -186,6 +195,10 @@ ${signaturesTab}         //a[@title='Signatures']
 ${signaturesTitle}  //h6[@class='sectiontitle6'][contains(.,'SIGNATURE')]
 ${documentsTab}          //a[@title='Documents']
 ${modelArtifactTab}        //a[@title='Model Artifacts']              
+${LicenseTab}    //a[@title='Licenses']//span[@class='mdl-tabs__ripple-container mdl-js-ripple-effect']
+${Author/publisherDetailsTab}    //a[@title='Author/Publisher Details']//span[@class='mdl-tabs__ripple-container mdl-js-ripple-effect']
+
+
 #Manage My Model Management Options
 ${onboradingTab_ManageMyModel}     //a[contains(@ng-click,'On-Boarding')]
 ${shareWithTeamTab}    //a[contains(@title,'Share with Team')]
@@ -201,7 +214,32 @@ ${SharedWithOthers_Icon}  (//span[contains(@title,'Shared With Others')])[1]
 ${Export_DeployToCloud}    //a[contains(@ng-click,'Export/Deploy to Cloud')]
 ${viewDownloadsTab}    //a[contains(@ng-click,'View Downloads')]
 ${replyToCommentsTab}    //a[contains(@ng-click,'Reply to Comments')]
-${manageAuthors}       //*[@id='manage-models']/div/div/section/div/div/div[2]/div/ul/li[3]/a[@title='Manage Authors']     # //a[contains(@ng-click,'Manage Authors')]    
+${manageAuthors}       //*[@id='manage-models']/div/div/section/div/div/div[2]/div/ul/li[3]/a[@title='Manage Authors'] 
+
+#on-boarding history tab verification
+${OnboardingHistoryTab}	  //button[@title='View Onboarding History']
+${OnboardingHistoryTab_title}	//span[@class='headline mob-disblock'][contains(.,'View On-Boarding History')]
+${Model_Name_OB}	//th[contains(text(),'MODEL NAME')]
+${Solution_Id}	//th[contains(text(),'SOLUTION ID')]
+${Step_Code}	//th[contains(text(),'STEP CODE')]
+${Revision_Id} 	 //th[contains(text(),'REVISION ID')]
+${Date_Time}	//th[contains(text(),'DATE & TIME')]
+${Status_OB}	 //th[contains(text(),'STATUS')]
+${Action}	 //th[contains(text(),'Action')]
+
+${In_Progress}	 //a[contains(.,'In Progress')]
+${Fail}	 //a[contains(.,'Fail')]
+${Successful}	//a[contains(.,'Successful')] 
+
+${searchModelTxtbox_Onboarding}		//input[contains(@ng-model,'searchOnHistoryList')]
+${ModelName_MS}		//tbody//tr[1]//td[1]//span[1]
+${success_status}	//tbody//tr[1]//td[6]
+${Fail_status}		//tbody//tr[1]//td[6]
+
+${View_Results}		//tbody//tr[1]//td[7]//button[1]
+${Fraud_DetectPop-up}	//h2[contains(text(),'FraudDetect')]
+${Fraud_DetectPop-up_OK}	//button[@class='mdl-button mdl-js-button btn-primary']
+  
 #Descover Acumos links
 ${discover_Marketplace}    //main[@class='mdl-layout__content initialVal ']//section//div[@class='discover']/div/a/div[@class='discover-description']/h5[contains(text(),'Marketplace')]
 ${discover_DesignStudio}    //main[@class='mdl-layout__content initialVal ']//section//div[@class='discover']/div/a/div[@class='discover-description']/h5[contains(text(),'Design Studio')]
