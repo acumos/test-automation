@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "266587bd_872f2e20",
+        "filename": "test-automation",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 4
+      },
+      "writtenOn": "2020-04-06T10:54:39Z",
+      "side": 1,
+      "message": "Ken what is this? Someone added a test-automation submodule in the test-automation project?  Like it\u0027s a snake biting its own tail?  Please explain, and probably you need to remove this.",
+      "revId": "f0d90f36baa77778162e791f5044fa6defccae22",
+      "serverId": "655300a2-7a56-4504-9153-881edd907bea",
+      "unresolved": true
+    }
+  ]
+}
