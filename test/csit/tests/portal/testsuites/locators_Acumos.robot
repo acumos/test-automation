@@ -33,7 +33,7 @@ ${designStudioTitle}  //span[@class='headline mob-disblock' and contains(text(),
 ${modelComposer}  //span[contains(.,'Model Composer')] 
 ${acuCompose}  //span[contains(.,'Acu-compose')]         
 ${marketPlaceIcon}     //a[@title='Marketplace']
-${myModelPageTitle}    //section[@class='pageheadsection mob-pageheadsection1']/div/div/span    
+${myModelPageTitle}    //span[@class='headline mob-disblock']    
 ${siteAdminIcon}       //a[@title='Site Admin']
 ${siteAdminPageTitle}  //section//div/span[contains(text(),'Site Admin')]
 ${publishRequestIcon}   //a[@title='Publish Request']
@@ -71,7 +71,7 @@ ${roleNameSorting}    //div/admin//div[2]/table/thead/tr/th[1]/span
 ${ModulePermissionSorting}    (//span[@class='gridcell-sort deactivate'])[5]
 ${createNewRole}    //button[text()[normalize-space()='Create New Role']]
 ${createNewRole_Popup}    //md-dialog/md-toolbar/div/h2[contains(.,'Create New Role')]
-${Role_Name_TextBox}    //input[contains(@ng-model,'roleName')]    
+${Role_Name_TextBox}    //input[@ng-model='roleName']    
 ${select_Cat_Perm}    (//md-checkbox[contains(@class,'catalog-item ng-pristine')]//div)[1]
 ${createNewRole_Button}    //button[@ng-disabled='!selectedCatalogList.length || !roleName ']
 ${SearchByRole}    (//input[contains(@class,'mdl-textfield__input adminsearchicon')])[3]
@@ -236,6 +236,12 @@ ${Catalog_Tile}    //div[@class='grid-top-section']//span[@class='icon-header ti
 ${EditCatalog}    //span[@class='gridicon-edit']
 ${Accesslevel_Public}    //div[@class='md-text'][contains(.,'Public')]
 ${Accesslevel_Restricted}  //div[@class='md-text'][contains(.,'Restricted')] 
+${Favorite}    //th[@class='sorting_disabled'][contains(.,'Favorite')]
+${CatalogName_FavPage}    //th[@class='sorting'][contains(.,'Catalog Name')]
+${Catalog_CreatedDate}    //th[@class='sorting'][contains(.,'Created Date')]
+${Catalog_TotalModels}    //th[@class='sorting_desc'][contains(.,'Total Models')]
+${ViewFavCatalogs}    //span[contains(.,'View Favorite Catalogs')]
+${ViewAllCatalogs}    //span[contains(.,'View All Catalogs')]
 
 #manage peer  
 ${ManagePeer}    //span[contains(@class,'gridicon-access')] 
@@ -245,9 +251,9 @@ ${Cancel_PeerAccess}    //span[contains(.,'Cancel')]
 ${Peer_Name}    (//th[@role='button'])[4]
 ${FDQN}    (//th[@role='button'])[5]
 ${Email_Peer}    (//th[text()[normalize-space()='Email']])[2]
-${Checkbox_peerAccess}    (//div[@class='md-container md-ink-ripple'])[3]
+${Checkbox_peerAccess}    (//div[contains(@class,'md-container md-ink-ripple')])[4]
 ${Grant_Access}    //md-dialog-actions/div/button[2]/span
-${Checkbox_1}    (//div[@class='md-container md-ink-ripple'])[2]
+${Checkbox_1}    //div[@class='md-padding']//div//tbody//div[@class='md-container md-ink-ripple']
 ${GrantPeer_RemoveBtn}    //manage-peer/div[1]//div[1]/div[2]/button[contains(.,'Remove')]
 ${Remove_Confirmation}    //button[@alt='Delete']
 ${Action_1}    //span[@class='fas fa-times']    
@@ -259,10 +265,15 @@ ${DeleteCatalog}    (//span[contains(@class,'gridicon-delete')])[1]
 ${DeleteCatalog_Pop-up}    //h2[contains(text(),'Delete Confirmation')]
 ${DeleteCatalog_Pop-up_Confirm}    //button[@alt='Delete']
 ${SelectFavorite_Catalogs}    (//span[contains(text(),'Select Favorite Catalogs')])[1]
-${SelectCatalogs_SearchBox}    //div[@class='mdl-cell--4-col mdl-cell--5-col-tablet mdl-cell--4-col-phone remove-datalist-icon']//input[@type='text']
+${SelectCatalogs_SearchBox}    //input[@placeholder='Filter']
 ${MY PUBLIC MODELS_IST2}    //label[contains(text(),'MY PUBLIC MODELS-IST2')]
 ${SelectedModel_Catalog}    //label[contains(text(),'TESTING_CATALOG')]
 ${FavoriteCatalog_Symbol}    //i[contains(.,'favorite_border')]
+${Close_catalog}    //md-dialog[@class='ud-deactivate-account _md md-content-overflow md-transition-in']//i[@class='material-icons'][contains(text(),'close')]
+${ModelName_catalog}    //div[@class='catalogSolutionAlignment']//div
+${FavoriteCatalog_Checkbox}    //div[@class='md-container']
+${Previous_Catalog}    //a[contains(@class,'paginate_button previous disabled')]
+${Next_Catalog}    //a[contains(@class,'paginate_button next disabled')]
 
 #Company
 ${publishToCompanyMarketplaceTab}    //a[contains(@ng-click,'Publish to Company Marketplace')]    
@@ -315,7 +326,14 @@ ${documentsTab}          //a[@title='Documents']
 ${modelArtifactTab}        //a[@title='Model Artifacts']              
 ${LicenseTab}    //span[contains(text(),'License')]
 ${Author/publisherDetailsTab}    //a[@title='Author/Publisher Details']//span[@class='mdl-tabs__ripple-container mdl-js-ripple-effect']
-
+${managePublishers/Authors}
+${addedAuthor}
+${addedAuthor_RemoveBTN}
+${DeleteAuthor_Popup}
+${DeleteAuthor_Popup_Confirm}
+${AuthorSectionTitle}
+${manageAuthorsPageTitle}
+${PublisherSection}
 
 #Manage My Model Management Options
 ${onboardingTab_ManageMyModel}     //a[contains(@ng-click,'On-Boarding')]
@@ -453,7 +471,7 @@ ${manageMyModel_Btn_ForDeletedModel}    //button[@ng-disabled='editModel' and @d
 #Publish Request for publishing 
 ${WithdrawRequestBtn_Public}    //button[contains(text(),'Withdraw Request')]    
 ${PublishRequestIcon}        //span[@class='headertxtspan' and contains(text(),'Publish Request')]
-${search_PublishRequest}    //input[@ng-model='searchPublishRequest']
+${search_PublishRequest}    (//input[@type='search'])[2]
 ${approve_PublishRequest}    //div[@class='admin-action-container']/button[1][@name='approvePublishRequestModal']
 ${approveRequestPopup_Description}    //textarea[@ng-model='descriptionPop']
 ${approveBtn}        //div[@id='publishRequestModal']//button/span[contains(text(),'Approve')]
@@ -475,8 +493,14 @@ ${PublishedDescription_PB}     //div[1]/model-details[1]/div[2]/div[2]/div[1]/di
 #Description in Published to Company marketplace Model
 ${PublishedDescription_OR}    //div[@ng-show='showORDescription']/p[1]
 
-
-
+# Notification Preferances
+${NotificationPreferences}    (//span[text()='Notification Preferences'])[1]    
+${NotificationQs}
+${NotificationEmailId}
+${NotificationPriority}
+${selectPriority}
+${PriorityMedium}
+${NotificationTimeStamp}
 
 
 
