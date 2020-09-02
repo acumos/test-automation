@@ -1,4 +1,5 @@
 # UUID                                                                            	Group Name
 #
 42f0c83244389e408b42fa668348002012ecba46                                          	GitHub Replication
+bbc87c9bf76ea4b488f471ee6d63d07728d8b961                                          	saml/acumos-gerrit-test-automation-committers
 ldap:cn=acumos-gerrit-test-automation-committers,ou=Groups,dc=freestandards,dc=org	ldap/acumos-gerrit-test-automation-committers
